@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary: #0F766E;
+  --primary-hover: #115E59;
+  --accent: #D97706;
+  --accent-hover: #B45309;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --text-primary: #0F172A;
+  --text-muted: #475569;
+  --border: #CBD5E1;
+  --error: #B91C1C;
+  --focus-ring: #0F766E;
+}
+
+.dark {
+  --primary: #2DD4BF;
+  --primary-hover: #5EEAD4;
+  --accent: #FBBF24;
+  --accent-hover: #F59E0B;
+  --background: #0B1220;
+  --surface: #111827;
+  --text-primary: #F1F5F9;
+  --text-muted: #94A3B8;
+  --border: #334155;
+  --error: #FCA5A5;
+  --focus-ring: #2DD4BF;
+}
+
+@theme {
+  --color-brand-primary: var(--primary);
+  --color-brand-primary-hover: var(--primary-hover);
+  --color-brand-accent: var(--accent);
+  --color-brand-accent-hover: var(--accent-hover);
+  --color-brand-bg: var(--background);
+  --color-brand-surface: var(--surface);
+  --color-brand-text: var(--text-primary);
+  --color-brand-muted: var(--text-muted);
+  --color-brand-border: var(--border);
+  --color-brand-error: var(--error);
+  --color-brand-focus: var(--focus-ring);
+
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus ring standard for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Minimum 44px touch target utility */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
