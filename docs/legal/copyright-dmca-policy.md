@@ -2,7 +2,7 @@
 
 **Effective Date:** `[EFFECTIVE DATE]`  
 **Last Updated:** `[LAST UPDATED]`  
-**Platform:** Morse Code Translator & Learning Platform (`[WEBSITE DOMAIN URL]`)  
+**Platform:** Morse Code Platform (`https://morsecodetranslatores.com/`)  
 **Operator:** `[WEBSITE OPERATOR / LEGAL ENTITY NAME]`
 
 ---
@@ -113,5 +113,5 @@ For non-DMCA intellectual property inquiries, educational licensing questions, o
 - **Entity / Project Name:** `[WEBSITE OPERATOR / LEGAL ENTITY NAME]`
 - **Email:** `morecodetranslator@gmail.com`
 - **Mailing Address:** `[PHYSICAL / MAILING ADDRESS]`
-- **Official Website:** `[WEBSITE DOMAIN URL]`
+- **Official Website:** `https://morsecodetranslatores.com/`
 

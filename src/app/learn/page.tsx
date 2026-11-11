@@ -405,8 +405,8 @@ export default function LearnHubPage() {
               Every digit from 0 to 9 in International Morse Code contains exactly five elements, building up symmetrically with leading dots (1–5) and leading dashes (6–0):
             </p>
 
-            {/* Mobile-Responsive Digits Display */}
-            <div className="mb-6 overflow-x-auto rounded-xl border border-slate-200/80 bg-slate-50/50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/40">
+            {/* Desktop Table View (Hidden on mobile to eliminate horizontal scrolling) */}
+            <div className="hidden md:block mb-6 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/40">
               <table className="w-full text-left text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                 <thead className="border-b border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-900 dark:border-slate-700 dark:text-slate-100">
                   <tr>
@@ -423,6 +423,28 @@ export default function LearnHubPage() {
                       <td className="py-2.5 pr-4 font-bold tracking-widest text-teal-800 dark:text-teal-300">{row.morse}</td>
                       <td className="py-2.5 pr-6 font-sans text-xs text-slate-600 dark:text-slate-400">{row.rhythm}</td>
                       <td className="py-2.5 font-sans text-xs text-slate-500 dark:text-slate-400">{row.rule}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile View: 0 Horizontal Scroll, Clean Structured Rows */}
+            <div className="md:hidden mb-6 rounded-xl border border-slate-200/80 bg-slate-50/50 p-3.5 dark:border-slate-800 dark:bg-slate-950/40">
+              <table className="w-full text-left text-xs text-slate-600 dark:text-slate-400">
+                <thead className="border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-900 dark:border-slate-700 dark:text-slate-100">
+                  <tr>
+                    <th className="py-2 pr-2">Digit</th>
+                    <th className="py-2 pr-2">Morse Code</th>
+                    <th className="py-2 text-right">Rhythm</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-mono dark:divide-slate-800/80">
+                  {DIGIT_PROGRESSION_ROWS.map((row) => (
+                    <tr key={row.digit} className="table-row-hover">
+                      <td className="py-2.5 pr-2 font-bold text-slate-900 dark:text-slate-100">{row.digit}</td>
+                      <td className="py-2.5 pr-2 font-bold tracking-widest text-teal-800 dark:text-teal-300">{row.morse}</td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">{row.rhythm}</td>
                     </tr>
                   ))}
                 </tbody>

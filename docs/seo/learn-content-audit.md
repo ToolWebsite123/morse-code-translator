@@ -125,10 +125,10 @@ The structured data graph in `learn-content-v2.md` was audited against Schema.or
    - `name`: `International Morse Code Beginner Course`
    - `courseWorkload`: `PT40M` (ISO 8601 duration for 40 minutes, exactly matching our 10-lesson sum).
    - `isAccessibleForFree`: `true`
-   - `itemListElement`: Correctly maps all 10 lessons dynamically to `https://morse-code-translator.org/learn/{slug}`.
+   - `itemListElement`: Correctly maps all 10 lessons dynamically to `https://morsecodetranslatores.com/learn/{slug}`.
 2. **`BreadcrumbList`:**
-   - Position 1: `Home` (`https://morse-code-translator.org/`)
-   - Position 2: `Learn` (`https://morse-code-translator.org/learn`)
+   - Position 1: `Home` (`https://morsecodetranslatores.com/`)
+   - Position 2: `Learn` (`https://morsecodetranslatores.com/learn`)
 3. **`FAQPage`:**
    - 6 questions and answers matching the visible FAQ accordions **100% word-for-word**.
    - No markdown syntax in schema text nodes; no broken links or inconsistent answer copy.

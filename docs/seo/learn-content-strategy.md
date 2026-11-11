@@ -123,7 +123,7 @@ H1: Learn International Morse Code: Step-by-Step Curriculum
   - *Rationale:* Hits primary keyword `learn morse code` upfront, specifies `10-Lesson Interactive Beginner Course`, clean and authoritative.
 - **Meta Description:** `Learn International Morse Code with our free, interactive 10-lesson course. Master dots, dashes, alphabet letters, numbers, timing, and audio rhythm step by step.` (159 characters)
   - *Rationale:* Contains primary keyword, secondary terms, value proposition, and actionable call to click.
-- **Canonical URL:** `https://morse-code-translator.org/learn` (dynamically generated via `siteConfig.ts`).
+- **Canonical URL:** `https://morsecodetranslatores.com/learn` (dynamically generated via `siteConfig.ts`).
 - **OpenGraph Tags:**
   - `og:title`: `Learn Morse Code — Free 10-Lesson Interactive Beginner Course`
   - `og:description`: `A free 10-lesson interactive curriculum teaching Morse code fundamentals, timing rules, alphabet letters, numbers, punctuation, and auditory rhythm.`
@@ -146,7 +146,7 @@ The `/learn` page will declare three rich schema graphs:
   "provider": {
     "@type": "Organization",
     "name": "Morse Code Platform",
-    "sameAs": "https://morse-code-translator.org/"
+    "sameAs": "https://morsecodetranslatores.com/"
   },
   "educationalLevel": "Beginner",
   "isAccessibleForFree": true,
@@ -160,7 +160,7 @@ The `/learn` page will declare three rich schema graphs:
       "@type": "ListItem",
       "position": 1,
       "name": "1. What Morse Code Is & How It Works",
-      "url": "https://morse-code-translator.org/learn/what-is-morse-code"
+      "url": "https://morsecodetranslatores.com/learn/what-is-morse-code"
     }
     // ... all 10 lessons mapped dynamically
   ]
@@ -177,13 +177,13 @@ The `/learn` page will declare three rich schema graphs:
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://morse-code-translator.org/"
+      "item": "https://morsecodetranslatores.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Learn",
-      "item": "https://morse-code-translator.org/learn"
+      "item": "https://morsecodetranslatores.com/learn"
     }
   ]
 }

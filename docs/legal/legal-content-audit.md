@@ -55,7 +55,7 @@ To maintain total legal integrity and avoid deceptive or unsupported claims, the
 Because this platform has not yet established a registered corporate entity, commercial ownership structure, or physical mailing address, standardized bracketed placeholders have been implemented throughout the legal documents:
 
 - **Legal Entity / Operator:** `[WEBSITE OPERATOR / LEGAL ENTITY NAME]`
-- **Official Domain:** `[WEBSITE DOMAIN URL]`
+- **Official Domain:** `https://morsecodetranslatores.com/` (apex canonical host)
 - **Contact Email:** `morecodetranslator@gmail.com`
 - **Physical / Postal Mailing Address:** `[PHYSICAL / MAILING ADDRESS]`
 - **DMCA / Copyright Designated Agent:** `[DMCA DESIGNATED AGENT NAME / EMAIL / ADDRESS]`

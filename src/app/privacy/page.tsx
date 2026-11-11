@@ -227,6 +227,41 @@ export default function PrivacyPage() {
               </div>
             </div>
           </section>
+
+          {/* Section 5: Contact Information */}
+          <section className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+            <div className="mb-4 flex items-center gap-3 sm:gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h2 className="text-lg font-bold text-slate-900 sm:text-xl md:text-2xl lg:text-3xl dark:text-slate-100">
+                5. Contact Information
+              </h2>
+            </div>
+            <p className="mb-6 text-sm leading-relaxed text-slate-700 sm:text-base md:text-lg dark:text-slate-300">
+              If you have any questions or concerns regarding our privacy architecture, please reach out to us:
+            </p>
+            <div className="grid grid-cols-1 gap-4">
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-5 text-sm leading-relaxed text-slate-700 sm:text-base dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300">
+                <ul className="space-y-1.5">
+                  <li>
+                    <strong>Official Email:</strong>{' '}
+                    <a href="mailto:morecodetranslator@gmail.com" className="font-mono text-teal-700 underline dark:text-teal-400">
+                      morecodetranslator@gmail.com
+                    </a>
+                  </li>
+                  <li>
+                    <strong>Official Website:</strong>{' '}
+                    <a href="https://morsecodetranslatores.com/" className="font-mono text-teal-700 underline dark:text-teal-400">
+                      https://morsecodetranslatores.com/
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
         </div>
 
         {/* Pre-Footer Action Banner */}

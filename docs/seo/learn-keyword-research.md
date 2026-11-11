@@ -153,7 +153,7 @@ Analysis of `morsecode.world`'s organic rankings reveals major content and UX we
 
 ## 7. Recommended Target Page Specifications
 
-- **Page URL:** `https://morse-code-translator.org/learn` (dynamic canonical via `siteConfig.ts`)
+- **Page URL:** `https://morsecodetranslatores.com/learn` (dynamic canonical via `siteConfig.ts`)
 - **Target Primary Keyword:** `learn morse code` (2,900 vol, KD 37)
 - **Target Secondary Keywords:** `morse code learning resources` (1,600 vol), `learning morse code` (1,300 vol), `learn morse` (880 vol)
 - **Primary H1:** `Learn International Morse Code: Step-by-Step Curriculum`

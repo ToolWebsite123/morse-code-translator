@@ -290,7 +290,10 @@ export default function DisclaimerPage() {
                 <strong>Mailing Address:</strong> [PHYSICAL / MAILING ADDRESS]
               </li>
               <li>
-                <strong>Official Website:</strong> [WEBSITE DOMAIN URL]
+                <strong>Official Website:</strong>{' '}
+                <a href="https://morsecodetranslatores.com/" className="font-mono text-teal-700 underline dark:text-teal-400">
+                  https://morsecodetranslatores.com/
+                </a>
               </li>
             </ul>
           </section>

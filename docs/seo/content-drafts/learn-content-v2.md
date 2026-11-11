@@ -1,6 +1,6 @@
 # Learn Morse Code (`/learn`) — Complete SEO Content Draft (v2)
 
-**Page URL:** `https://morse-code-translator.org/learn` (dynamic canonical via `siteConfig.ts`)  
+**Page URL:** `https://morsecodetranslatores.com/learn` (dynamic canonical via `siteConfig.ts`)  
 **Target Search Intent:** Educational / Informational / Beginner Course  
 **Primary Target Keyword:** `learn morse code` (Vol: 2,900 | KD: 37)  
 **Secondary Keywords:** `morse code learning resources` (1,600), `learning morse code` (1,300), `learn morse` (880), `how to read morse code` (390), `how to do morse code` (260), `how to write morse code` (210), `how to speak morse code` (170)  
@@ -14,12 +14,12 @@
 <!-- Primary Metadata -->
 <title>Learn Morse Code — Free 10-Lesson Interactive Course</title>
 <meta name="description" content="Learn International Morse Code with our free, interactive 10-lesson course. Master dots, dashes, alphabet letters, numbers, timing, and audio rhythm step by step." />
-<link rel="canonical" href="https://morse-code-translator.org/learn" />
+<link rel="canonical" href="https://morsecodetranslatores.com/learn" />
 
 <!-- OpenGraph Metadata -->
 <meta property="og:title" content="Learn Morse Code — Free 10-Lesson Interactive Course" />
 <meta property="og:description" content="A free 10-lesson interactive curriculum teaching Morse code fundamentals, timing rules, alphabet letters, numbers, punctuation, and auditory rhythm." />
-<meta property="og:url" content="https://morse-code-translator.org/learn" />
+<meta property="og:url" content="https://morsecodetranslatores.com/learn" />
 <meta property="og:type" content="website" />
 ```
 
@@ -37,7 +37,7 @@
     "provider": {
       "@type": "Organization",
       "name": "Morse Code Platform",
-      "sameAs": "https://morse-code-translator.org/"
+      "sameAs": "https://morsecodetranslatores.com/"
     },
     "educationalLevel": "Beginner",
     "isAccessibleForFree": true,
@@ -51,61 +51,61 @@
         "@type": "ListItem",
         "position": 1,
         "name": "1. What Morse Code Is & How It Works",
-        "url": "https://morse-code-translator.org/learn/what-is-morse-code"
+        "url": "https://morsecodetranslatores.com/learn/what-is-morse-code"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "2. Dots, Dashes & Standard Timing",
-        "url": "https://morse-code-translator.org/learn/dots-dashes-and-timing"
+        "url": "https://morsecodetranslatores.com/learn/dots-dashes-and-timing"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "3. The Single-Element Foundations (E & T) and Binary Tree",
-        "url": "https://morse-code-translator.org/learn/short-simple-characters"
+        "url": "https://morsecodetranslatores.com/learn/short-simple-characters"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "4. The Complete A–Z Alphabet",
-        "url": "https://morse-code-translator.org/learn/the-full-latin-alphabet"
+        "url": "https://morsecodetranslatores.com/learn/the-full-latin-alphabet"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "5. Numbers (0 to 9) and the 5-Element Rule",
-        "url": "https://morse-code-translator.org/learn/numbers-zero-through-nine"
+        "url": "https://morsecodetranslatores.com/learn/numbers-zero-through-nine"
       },
       {
         "@type": "ListItem",
         "position": 6,
         "name": "6. Official Punctuation & Separators",
-        "url": "https://morse-code-translator.org/learn/essential-punctuation-marks"
+        "url": "https://morsecodetranslatores.com/learn/essential-punctuation-marks"
       },
       {
         "@type": "ListItem",
         "position": 7,
         "name": "7. Word Boundaries & The Slash Separator Convention",
-        "url": "https://morse-code-translator.org/learn/word-boundaries-and-slash-separator"
+        "url": "https://morsecodetranslatores.com/learn/word-boundaries-and-slash-separator"
       },
       {
         "@type": "ListItem",
         "position": 8,
         "name": "8. Reading Groups & Overcoming Group Confusion",
-        "url": "https://morse-code-translator.org/learn/reading-morse-groups-and-rhythm"
+        "url": "https://morsecodetranslatores.com/learn/reading-morse-groups-and-rhythm"
       },
       {
         "@type": "ListItem",
         "position": 9,
         "name": "9. Auditory Recognition & Speed (WPM)",
-        "url": "https://morse-code-translator.org/learn/listening-at-different-speeds"
+        "url": "https://morsecodetranslatores.com/learn/listening-at-different-speeds"
       },
       {
         "@type": "ListItem",
         "position": 10,
         "name": "10. Comprehensive Review & Transition to Drills",
-        "url": "https://morse-code-translator.org/learn/comprehensive-review-and-next-steps"
+        "url": "https://morsecodetranslatores.com/learn/comprehensive-review-and-next-steps"
       }
     ]
   },
@@ -117,13 +117,13 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://morse-code-translator.org/"
+        "item": "https://morsecodetranslatores.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Learn",
-        "item": "https://morse-code-translator.org/learn"
+        "item": "https://morsecodetranslatores.com/learn"
       }
     ]
   },

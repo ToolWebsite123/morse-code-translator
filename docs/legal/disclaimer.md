@@ -2,7 +2,7 @@
 
 **Effective Date:** `[EFFECTIVE DATE]`  
 **Last Updated:** `[LAST UPDATED]`  
-**Platform:** Morse Code Translator & Learning Platform (`[WEBSITE DOMAIN URL]`)  
+**Platform:** Morse Code Platform (`https://morsecodetranslatores.com/`)  
 **Operator:** `[WEBSITE OPERATOR / LEGAL ENTITY NAME]`
 
 ---
@@ -109,5 +109,5 @@ If you require technical clarification regarding our algorithms, ITU-R M.1677-1 
 - **Entity / Project:** `[WEBSITE OPERATOR / LEGAL ENTITY NAME]`
 - **Email:** `morecodetranslator@gmail.com`
 - **Mailing Address:** `[PHYSICAL / MAILING ADDRESS]`
-- **Official Website:** `[WEBSITE DOMAIN URL]`
+- **Official Website:** `https://morsecodetranslatores.com/`
 

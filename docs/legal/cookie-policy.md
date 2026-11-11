@@ -2,7 +2,7 @@
 
 **Effective Date:** `[EFFECTIVE DATE]`  
 **Last Updated:** `[LAST UPDATED]`  
-**Platform:** Morse Code Translator & Learning Platform (`[WEBSITE DOMAIN URL]`)  
+**Platform:** Morse Code Platform (`https://morsecodetranslatores.com/`)  
 **Operator:** `[WEBSITE OPERATOR / LEGAL ENTITY NAME]`
 
 ---
@@ -83,7 +83,7 @@ You can view, inspect, or delete all storage entries at any time using your brow
 
 - **Google Chrome / Microsoft Edge / Brave:**
   1. Open **Settings** $\rightarrow$ **Privacy and Security** $\rightarrow$ **Site Settings** $\rightarrow$ **View permissions and data stored across sites**.
-  2. Search for our domain name (`[WEBSITE DOMAIN URL]`).
+  2. Search for our domain name (`morsecodetranslatores.com`).
   3. Click the trash can icon or **Clear Data**.
 - **Mozilla Firefox:**
   1. Open **Settings** $\rightarrow$ **Privacy & Security** $\rightarrow$ **Cookies and Site Data**.
@@ -114,5 +114,5 @@ If you have questions or require technical assistance regarding our browser stor
 - **Entity / Project Name:** `[WEBSITE OPERATOR / LEGAL ENTITY NAME]`
 - **Attn:** Privacy & Technology Inquiries
 - **Email:** `morecodetranslator@gmail.com`
-- **Official Website:** `[WEBSITE DOMAIN URL]`
+- **Official Website:** `https://morsecodetranslatores.com/`
 

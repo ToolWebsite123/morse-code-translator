@@ -289,8 +289,8 @@ export default function HomePage() {
               Morse code is fundamentally an auditory language. Our tone generator synthesizes clean sine waves locally in your web browser calibrated to the international standard word <strong>PARIS</strong> (50 total units of time, where <code className="font-mono font-bold">T = 1200 / WPM</code> ms):
             </p>
 
-            {/* Timing Table */}
-            <div className="mb-6 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-950/40">
+            {/* Desktop Timing Table (Hidden on mobile) */}
+            <div className="hidden md:block mb-6 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-950/40">
               <div className="overflow-x-auto p-4 sm:p-5">
                 <table className="w-full text-left text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                   <thead className="border-b border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-900 dark:border-slate-700 dark:text-slate-100">
@@ -337,6 +337,49 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Mobile View: 0 Horizontal Scroll Timing Cards */}
+            <div className="md:hidden mb-6 space-y-2.5">
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5 dark:border-slate-800 dark:bg-slate-950/50">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900 dark:text-slate-100 text-sm">Dot (Dit)</span>
+                  <span className="rounded-md bg-teal-100 px-2 py-0.5 font-mono text-xs font-bold text-teal-900 dark:bg-teal-950 dark:text-teal-300">1T (80 ms)</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">Base unit of continuous wave duration.</p>
+              </div>
+
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5 dark:border-slate-800 dark:bg-slate-950/50">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900 dark:text-slate-100 text-sm">Dash (Dah)</span>
+                  <span className="rounded-md bg-teal-100 px-2 py-0.5 font-mono text-xs font-bold text-teal-900 dark:bg-teal-950 dark:text-teal-300">3T (240 ms)</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">Exactly three times the duration of a dot.</p>
+              </div>
+
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5 dark:border-slate-800 dark:bg-slate-950/50">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900 dark:text-slate-100 text-sm">Intra-Character Gap</span>
+                  <span className="rounded-md bg-amber-100 px-2 py-0.5 font-mono text-xs font-bold text-amber-900 dark:bg-amber-950 dark:text-amber-300">1T (80 ms)</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">Silent pause between dots/dashes within a letter.</p>
+              </div>
+
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5 dark:border-slate-800 dark:bg-slate-950/50">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900 dark:text-slate-100 text-sm">Inter-Letter Gap</span>
+                  <span className="rounded-md bg-amber-100 px-2 py-0.5 font-mono text-xs font-bold text-amber-900 dark:bg-amber-950 dark:text-amber-300">3T (240 ms)</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">Silent pause between letters within a word.</p>
+              </div>
+
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5 dark:border-slate-800 dark:bg-slate-950/50">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900 dark:text-slate-100 text-sm">Inter-Word Gap</span>
+                  <span className="rounded-md bg-amber-100 px-2 py-0.5 font-mono text-xs font-bold text-amber-900 dark:bg-amber-950 dark:text-amber-300">7T (560 ms)</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">Silent pause between distinct words (<code className="font-mono font-bold">/</code>).</p>
+              </div>
+            </div>
+
             {/* 4 Cards Grid */}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-5 text-sm leading-relaxed text-slate-700 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300">
@@ -378,7 +421,8 @@ export default function HomePage() {
               International Morse Code standardizes 54 characters across 26 Latin letters, 10 Arabic digits, and 18 punctuation symbols. Key foundational symbols and rhythm patterns:
             </p>
 
-            <div className="mb-6 overflow-x-auto rounded-xl border border-slate-200/80 bg-slate-50/50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/40">
+            {/* Desktop Table View (Hidden on mobile to eliminate horizontal scrolling) */}
+            <div className="hidden md:block mb-6 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/40">
               <table className="w-full text-left text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                 <thead className="border-b border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-900 dark:border-slate-700 dark:text-slate-100">
                   <tr>
@@ -425,6 +469,87 @@ export default function HomePage() {
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            {/* Mobile View: 0 Horizontal Scroll, Clean Structured Tables */}
+            <div className="md:hidden mb-6 space-y-3.5">
+              {/* Dot-Rooted Group */}
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50/50 p-3.5 dark:border-slate-800 dark:bg-slate-950/40">
+                <div className="mb-2 flex items-center justify-between border-b border-slate-200/70 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:border-slate-800 dark:text-slate-400">
+                  <span>Dot-Rooted Elements</span>
+                  <span className="font-mono text-[10px] text-teal-800 dark:text-teal-400">E · A · I · S</span>
+                </div>
+                <table className="w-full text-left text-xs text-slate-600 dark:text-slate-400">
+                  <thead className="border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-900 dark:border-slate-700 dark:text-slate-100">
+                    <tr>
+                      <th className="py-2 pr-2">Letter</th>
+                      <th className="py-2 pr-2">Morse Code</th>
+                      <th className="py-2 text-right">Rhythm</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 font-mono dark:divide-slate-800/80">
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">E</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">.</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">dit</td>
+                    </tr>
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">A</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">.-</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">di-DAH</td>
+                    </tr>
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">I</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">..</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">di-dit</td>
+                    </tr>
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">S</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">...</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">di-di-dit</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Dash-Rooted Group */}
+              <div className="rounded-xl border border-slate-200/80 bg-slate-50/50 p-3.5 dark:border-slate-800 dark:bg-slate-950/40">
+                <div className="mb-2 flex items-center justify-between border-b border-slate-200/70 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:border-slate-800 dark:text-slate-400">
+                  <span>Dash-Rooted Elements</span>
+                  <span className="font-mono text-[10px] text-teal-800 dark:text-teal-400">T · N · M · O</span>
+                </div>
+                <table className="w-full text-left text-xs text-slate-600 dark:text-slate-400">
+                  <thead className="border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-900 dark:border-slate-700 dark:text-slate-100">
+                    <tr>
+                      <th className="py-2 pr-2">Letter</th>
+                      <th className="py-2 pr-2">Morse Code</th>
+                      <th className="py-2 text-right">Rhythm</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 font-mono dark:divide-slate-800/80">
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">T</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">-</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">DAH</td>
+                    </tr>
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">N</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">-.</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">DAH-dit</td>
+                    </tr>
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">M</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">--</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">DAH-DAH</td>
+                    </tr>
+                    <tr className="table-row-hover">
+                      <td className="py-2.5 pr-2 text-base font-extrabold text-slate-900 dark:text-slate-100">O</td>
+                      <td className="py-2.5 pr-2"><span className="inline-flex rounded-lg border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-sm font-bold tracking-widest text-teal-900 dark:border-teal-800 dark:bg-teal-950 dark:text-teal-300">---</span></td>
+                      <td className="py-2.5 font-sans text-xs text-right text-slate-600 dark:text-slate-400">DAH-DAH-DAH</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             {/* SOS Emergency Callout */}
