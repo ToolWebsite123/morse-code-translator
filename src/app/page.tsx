@@ -7,16 +7,16 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Morse Code Translator — Free Text & Audio Converter',
+  title: 'Morse Code Translator & Decoder — Audio Tone Player',
   description:
-    'Translate English text to International Morse Code and decode Morse code to text instantly. Listen with adjustable speed and pitch controls — free and browser-local.',
+    'Translate text to Morse code and decode Morse code to text. Play audio tones with custom speed (WPM) & pitch, flash visual signals, and learn online.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Morse Code Translator — Free Text & Audio Converter',
+    title: 'Morse Code Translator & Decoder — Audio Tone Player',
     description:
-      'Translate English text to International Morse Code and decode Morse code to text instantly. Listen with adjustable speed and pitch controls — free and browser-local.',
+      'Translate text to Morse code and decode Morse code to text. Play audio tones with custom speed (WPM) & pitch, flash visual signals, and learn online.',
     url: getAbsoluteUrl('/'),
     type: 'website',
   },

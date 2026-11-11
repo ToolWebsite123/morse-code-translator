@@ -9,14 +9,14 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 export const metadata: Metadata = {
   title: 'Morse Code Practice & Speed Trainer',
   description:
-    'Practice Morse code with free interactive speed drills. Train letter recall, listen to audio tones, type dots and dashes, and master weak characters online.',
+    'Practice Morse code with free interactive speed drills. Train letter recall, listen to audio tones, type dots & dashes, and target your weak characters.',
   alternates: {
     canonical: '/practice',
   },
   openGraph: {
     title: 'Morse Code Practice & Speed Trainer',
     description:
-      'Practice Morse code with free interactive speed drills. Train letter recall, listen to audio tones, type dots and dashes, and master weak characters online.',
+      'Practice Morse code with free interactive speed drills. Train letter recall, listen to audio tones, type dots & dashes, and target your weak characters.',
     url: getAbsoluteUrl('/practice'),
     siteName: 'Morse Code Platform',
     type: 'website',

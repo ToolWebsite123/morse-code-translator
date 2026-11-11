@@ -19,6 +19,59 @@ export async function generateStaticParams() {
   }));
 }
 
+const LESSON_SEO_METADATA: Record<string, { title: string; description: string }> = {
+  'what-is-morse-code': {
+    title: 'What Is Morse Code & Origins',
+    description:
+      'Discover what Morse code is, its telegraph history, and how text converts into sound and light signals. Learn the origins of International Morse Code.',
+  },
+  'dots-dashes-and-timing': {
+    title: 'Morse Code Timing & PARIS Rule',
+    description:
+      'Master the 5 international timing rules of Morse code: 1-unit dots, 3-unit dashes, PARIS standard ratios, and letter spacing according to ITU-R rules.',
+  },
+  'short-simple-characters': {
+    title: 'Binary Tree: E & T Foundations',
+    description:
+      'Learn Morse code with the binary tree. Master single-element foundations (E & T) and symmetrical letter branches (I, M, S, O) with audio tone drills.',
+  },
+  'the-full-latin-alphabet': {
+    title: 'Complete A–Z Alphabet Patterns',
+    description:
+      'Memorize the complete 26-letter Latin Morse code alphabet using symmetrical opposites and rhymes. Learn opposite pairs like A (.-) and N (-.) with audio.',
+  },
+  'numbers-zero-through-nine': {
+    title: 'Morse Code Numbers: 0 to 9',
+    description:
+      'Master all 10 Morse code numbers from 0 to 9 using the 5-element sliding window rule. Learn digit rhythms and test your recall with audio examples.',
+  },
+  'essential-punctuation-marks': {
+    title: 'Morse Code Punctuation Symbols',
+    description:
+      'Learn the 18 official Morse code punctuation marks and signs: full stops, commas, question marks, slashes, and prosigns with audio examples.',
+  },
+  'word-boundaries-and-slash-separator': {
+    title: 'Word Spacing & Slash Separators',
+    description:
+      'Understand the 7-unit pause between Morse code words and why the forward slash (/) is used in text translation. Learn spacing rules and slash notation.',
+  },
+  'reading-morse-groups-and-rhythm': {
+    title: 'Reading Morse Groups & Rhythm',
+    description:
+      'Learn how to decode continuous Morse code letter groups without confusion. Master acoustic rhythm, character spacing pauses, and word boundaries easily.',
+  },
+  'listening-at-different-speeds': {
+    title: 'Auditory Copying & Speed (WPM)',
+    description:
+      'Train your ear for conversational Morse code copying. Understand Words Per Minute (WPM), PARIS timing standards, and how Farnsworth spacing works.',
+  },
+  'comprehensive-review-and-next-steps': {
+    title: 'Course Review & Transition Drills',
+    description:
+      'Synthesize everything you learned across our 10 Morse code lessons. Review timing, letters, digits, and punctuation, then transition into speed drills.',
+  },
+};
+
 export async function generateMetadata({ params }: LessonPageProps): Promise<Metadata> {
   const { slug } = await params;
   const lesson = getLessonBySlug(slug);
@@ -29,11 +82,22 @@ export async function generateMetadata({ params }: LessonPageProps): Promise<Met
     };
   }
 
+  const seo = LESSON_SEO_METADATA[slug];
+  const title = seo ? seo.title : lesson.title;
+  const description = seo ? seo.description : `${lesson.subtitle}. ${lesson.objective}`;
+
   return {
-    title: lesson.title,
-    description: `${lesson.subtitle}. ${lesson.objective}`,
+    title,
+    description,
     alternates: {
       canonical: `/learn/${lesson.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: getAbsoluteUrl(`/learn/${lesson.slug}`),
+      siteName: 'Morse Code Platform',
+      type: 'article',
     },
   };
 }

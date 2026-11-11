@@ -9,16 +9,16 @@ import { CopyEmailButton } from '@/components/contact/CopyEmailButton';
 const OFFICIAL_EMAIL = 'morecodetranslator@gmail.com';
 
 export const metadata: Metadata = {
-  title: 'Contact Us & Support',
+  title: 'Contact Us & Support Helpdesk',
   description:
-    'Contact the Morse Code Platform team for feedback, bug reports, feature suggestions, and educational inquiries. Direct email support available.',
+    'Contact the Morse Code Platform team for support, feature suggestions, bug reports, and educational inquiries. Direct email assistance available.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact Us & Support | Morse Code Platform',
+    title: 'Contact Us & Support Helpdesk',
     description:
-      'Contact the Morse Code Platform team for feedback, bug reports, feature suggestions, and educational inquiries. Direct email support available.',
+      'Contact the Morse Code Platform team for support, feature suggestions, bug reports, and educational inquiries. Direct email assistance available.',
     url: getAbsoluteUrl('/contact'),
     siteName: 'Morse Code Platform',
     type: 'website',

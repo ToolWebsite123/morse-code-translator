@@ -18,10 +18,10 @@ export const SITE_CONFIG = {
   canonicalHost: 'https://morsecodetranslatores.com',
   email: 'morecodetranslator@gmail.com',
   locale: 'en_US',
-  defaultTitle: 'Morse Code Translator, Audio Player & Learning Platform',
+  defaultTitle: 'Morse Code Translator & Decoder — Audio Tone Player',
   titleTemplate: '%s | Morse Code Platform',
   defaultDescription:
-    'Free, private International Morse Code translator with audio tone playback, visual signals, alphabet reference chart, and interactive beginner lessons.',
+    'Translate text to Morse code and decode Morse code to text. Play audio tones with custom speed (WPM) & pitch, flash visual signals, and learn online.',
   standard: 'Recommendation ITU-R M.1677-1',
   author: 'Morse Code Platform Team',
 };

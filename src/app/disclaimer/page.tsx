@@ -8,16 +8,16 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 const CONTACT_EMAIL = 'morecodetranslator@gmail.com';
 
 export const metadata: Metadata = {
-  title: 'Technical & Operational Disclaimer',
+  title: 'Technical & Safety Disclaimer',
   description:
-    'Important technical and operational disclaimers for Morse Code Platform. Details on educational use, no emergency reliance, ITU-R M.1677-1 standards, and audio limits.',
+    'Important technical and safety disclaimers. Morse Code Platform is an educational utility and is not certified for maritime emergency or SOS life safety.',
   alternates: {
     canonical: '/disclaimer',
   },
   openGraph: {
-    title: 'Technical & Operational Disclaimer | Morse Code Platform',
+    title: 'Technical & Safety Disclaimer',
     description:
-      'Important technical and operational disclaimers for Morse Code Platform. Details on educational use, no emergency reliance, ITU-R M.1677-1 standards, and audio limits.',
+      'Important technical and safety disclaimers. Morse Code Platform is an educational utility and is not certified for maritime emergency or SOS life safety.',
     url: getAbsoluteUrl('/disclaimer'),
     siteName: 'Morse Code Platform',
     type: 'website',

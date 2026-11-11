@@ -8,16 +8,16 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 const CONTACT_EMAIL = 'morecodetranslator@gmail.com';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use & Service Conditions',
+  title: 'Terms of Use & Service Rules',
   description:
-    'Review the Terms of Use for Morse Code Platform. Understand acceptable use, client-side execution, intellectual property, and service limitations.',
+    'Review the Terms of Use for Morse Code Platform. Understand permitted educational use, client-side execution, intellectual property, and service rules.',
   alternates: {
     canonical: '/terms',
   },
   openGraph: {
-    title: 'Terms of Use & Service Conditions | Morse Code Platform',
+    title: 'Terms of Use & Service Rules',
     description:
-      'Review the Terms of Use for Morse Code Platform. Understand acceptable use, client-side execution, intellectual property, and service limitations.',
+      'Review the Terms of Use for Morse Code Platform. Understand permitted educational use, client-side execution, intellectual property, and service rules.',
     url: getAbsoluteUrl('/terms'),
     siteName: 'Morse Code Platform',
     type: 'website',

@@ -10,14 +10,14 @@ import { LETTER_MAPPINGS, DIGIT_MAPPINGS, PUNCTUATION_MAPPINGS } from '@/lib/mor
 export const metadata: Metadata = {
   title: 'Morse Code Alphabet Chart & Letters',
   description:
-    'Complete International Morse Code alphabet chart for all 26 A–Z letters, 0–9 numbers, and 18 punctuation symbols. Search by character or dots and dashes.',
+    'Complete International Morse Code alphabet chart for all 26 A–Z letters, 0–9 numbers, and 18 punctuation symbols. Search characters and listen to audio.',
   alternates: {
     canonical: '/reference',
   },
   openGraph: {
     title: 'Morse Code Alphabet Chart & Letters',
     description:
-      'Lookup, search, and copy all 54 International Morse Code characters: A–Z alphabet letters, 0–9 digits, and 18 official punctuation symbols.',
+      'Complete International Morse Code alphabet chart for all 26 A–Z letters, 0–9 numbers, and 18 punctuation symbols. Search characters and listen to audio.',
     url: getAbsoluteUrl('/reference'),
     type: 'article',
   },

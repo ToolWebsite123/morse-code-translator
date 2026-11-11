@@ -10,14 +10,14 @@ import { LESSONS } from '@/lib/learning/lessons';
 export const metadata: Metadata = {
   title: 'Learn Morse Code: 10-Lesson Course',
   description:
-    'Learn International Morse Code with our free, interactive 10-lesson course. Master dots, dashes, alphabet letters, numbers, timing, and audio rhythm step by step.',
+    'Learn International Morse Code with our free, interactive 10-lesson course. Master dots, dashes, alphabet letters, timing rules, and audio rhythm.',
   alternates: {
     canonical: '/learn',
   },
   openGraph: {
     title: 'Learn Morse Code: 10-Lesson Course',
     description:
-      'A free 10-lesson interactive curriculum teaching Morse code fundamentals, timing rules, alphabet letters, numbers, punctuation, and auditory rhythm.',
+      'Learn International Morse Code with our free, interactive 10-lesson course. Master dots, dashes, alphabet letters, timing rules, and audio rhythm.',
     url: getAbsoluteUrl('/learn'),
     siteName: 'Morse Code Platform',
     type: 'website',

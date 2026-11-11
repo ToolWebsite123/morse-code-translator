@@ -9,14 +9,14 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 export const metadata: Metadata = {
   title: 'Morse Code Quiz & Knowledge Test',
   description:
-    'Test your Morse code knowledge with our free 10-question standardized quiz. Evaluate letters, timing, numbers, punctuation, and audio recognition online.',
+    'Test your Morse code knowledge with our free 10-question standardized quiz. Evaluate letters, timing rules, numbers, punctuation, and audio recognition.',
   alternates: {
     canonical: '/quiz',
   },
   openGraph: {
     title: 'Morse Code Quiz & Knowledge Test',
     description:
-      'Test your Morse code knowledge with our free 10-question standardized quiz. Evaluate letters, timing, numbers, punctuation, and audio recognition online.',
+      'Test your Morse code knowledge with our free 10-question standardized quiz. Evaluate letters, timing rules, numbers, punctuation, and audio recognition.',
     url: getAbsoluteUrl('/quiz'),
     siteName: 'Morse Code Platform',
     type: 'website',

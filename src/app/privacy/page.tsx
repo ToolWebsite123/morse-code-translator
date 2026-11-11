@@ -6,16 +6,16 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & Data Disclosures',
+  title: 'Privacy Policy & Data Security',
   description:
-    'Our transparent privacy policy. Learn how our browser-local architecture ensures your translations and learning progress are never sent to external servers.',
+    'Learn how our browser-local architecture ensures your Morse code translations and learning progress are processed in memory and never sent to servers.',
   alternates: {
     canonical: '/privacy',
   },
   openGraph: {
-    title: 'Privacy Policy & Data Disclosures',
+    title: 'Privacy Policy & Data Security',
     description:
-      'Our transparent privacy policy. Learn how our browser-local architecture ensures your translations and learning progress are never sent to external servers.',
+      'Learn how our browser-local architecture ensures your Morse code translations and learning progress are processed in memory and never sent to servers.',
     url: getAbsoluteUrl('/privacy'),
     siteName: 'Morse Code Platform',
     type: 'website',

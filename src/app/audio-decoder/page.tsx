@@ -9,14 +9,14 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 export const metadata: Metadata = {
   title: 'Morse Code Audio File Decoder',
   description:
-    'Free browser-local Morse code audio decoder. Upload WAV, MP3, or OGG audio files to transcribe acoustic Morse beeps into Morse code and plain English text with zero server uploads.',
+    'Decode Morse code audio into text online. Upload WAV, MP3, or OGG recordings to transcribe audio beeps into English text with 100% browser privacy.',
   alternates: {
     canonical: '/audio-decoder',
   },
   openGraph: {
     title: 'Morse Code Audio File Decoder',
     description:
-      'Upload and decode Morse code audio recordings into plain English text with browser-local processing.',
+      'Decode Morse code audio into text online. Upload WAV, MP3, or OGG recordings to transcribe audio beeps into English text with 100% browser privacy.',
     url: getAbsoluteUrl('/audio-decoder'),
     siteName: 'Morse Code Platform',
     type: 'website',

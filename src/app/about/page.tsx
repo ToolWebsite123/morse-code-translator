@@ -8,14 +8,14 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 export const metadata: Metadata = {
   title: 'About Our Platform & Standards',
   description:
-    'Learn about the Morse Code Translator & Learning Platform. Built for students, radio hobbyists, and educators adhering strictly to Recommendation ITU-R M.1677-1.',
+    'Learn about Morse Code Platform: an open educational resource adhering to Recommendation ITU-R M.1677-1 with zero tracking and browser-local audio tools.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
     title: 'About Our Platform & Standards',
     description:
-      'Learn about the Morse Code Translator & Learning Platform. Built for students, radio hobbyists, and educators adhering strictly to Recommendation ITU-R M.1677-1.',
+      'Learn about Morse Code Platform: an open educational resource adhering to Recommendation ITU-R M.1677-1 with zero tracking and browser-local audio tools.',
     url: getAbsoluteUrl('/about'),
     siteName: 'Morse Code Platform',
     type: 'website',
