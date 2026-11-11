@@ -1,0 +1,12 @@
+Cluster,Phrase,Intent,Target_URL,Volume,KD,Priority,Role
+quiz-assessment,morse code quiz,Commercial / Educational Evaluation,/quiz,N/A,N/A,High,Primary Keyword
+quiz-assessment,morse code test,Educational Evaluation,/quiz,N/A,N/A,High,Secondary Keyword
+quiz-assessment,test to morse,Practical Testing / Translation,/quiz,90,39,Medium,Secondary Cross-Intent
+quiz-assessment,morse code knowledge test,Educational Evaluation,/quiz,N/A,N/A,Medium,Supporting Long-Tail
+quiz-assessment,test your morse code,Informational / Interactive,/quiz,N/A,N/A,Medium,Supporting Long-Tail
+quiz-assessment,morse code multiple choice test,Direct Practical,/quiz,N/A,N/A,Medium,Supporting Long-Tail
+quiz-assessment,morse code audio quiz,Acoustic Identification,/quiz,N/A,N/A,Medium,Supporting Long-Tail
+quiz-assessment,morse code timing test,Theoretical / Standards,/quiz,N/A,N/A,Low,Supporting Long-Tail
+quiz-assessment,online morse code test,Direct Practical,/quiz,N/A,N/A,Medium,Supporting Long-Tail
+quiz-assessment,morse code assessment,Educational Evaluation,/quiz,N/A,N/A,Low,Supporting Long-Tail
+

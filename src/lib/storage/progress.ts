@@ -33,21 +33,27 @@ let inMemoryProgress: LearningProgress = { ...INITIAL_LEARNING_PROGRESS };
 
 // Snapshot cache to guarantee referential stability for useSyncExternalStore
 let cachedSerialized: string | null = null;
-let cachedProgress: LearningProgress = { ...INITIAL_LEARNING_PROGRESS };
+let cachedProgress: LearningProgress = INITIAL_LEARNING_PROGRESS;
+
+let storageChecked = false;
+let storageAvailable = false;
 
 /**
- * Checks if localStorage is available and writable
+ * Checks if localStorage is available and writable (evaluated once and cached)
  */
 function isStorageAvailable(): boolean {
   if (typeof window === 'undefined') return false;
+  if (storageChecked) return storageAvailable;
   try {
     const testKey = '__morse_storage_test__';
     window.localStorage.setItem(testKey, testKey);
     window.localStorage.removeItem(testKey);
-    return true;
+    storageAvailable = true;
   } catch {
-    return false;
+    storageAvailable = false;
   }
+  storageChecked = true;
+  return storageAvailable;
 }
 
 /**
@@ -110,7 +116,7 @@ export function getLearningProgress(): LearningProgress {
         return cachedProgress;
       }
       cachedSerialized = null;
-      cachedProgress = { ...INITIAL_LEARNING_PROGRESS };
+      cachedProgress = INITIAL_LEARNING_PROGRESS;
       return cachedProgress;
     }
 
@@ -232,7 +238,7 @@ export function recordPracticeAttempt(character: string, isCorrect: boolean): Le
 export function resetLearningProgress(): void {
   inMemoryProgress = { ...INITIAL_LEARNING_PROGRESS };
   cachedSerialized = null;
-  cachedProgress = { ...INITIAL_LEARNING_PROGRESS };
+  cachedProgress = INITIAL_LEARNING_PROGRESS;
   if (isStorageAvailable()) {
     try {
       window.localStorage.removeItem(PROGRESS_STORAGE_KEY);

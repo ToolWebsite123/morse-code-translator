@@ -117,99 +117,171 @@ export function PracticeClient() {
   };
 
   return (
-    <div className="w-full">
-      {/* Controls Bar: Direction & Category Selectors */}
-      <div className="mb-6 flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-xs sm:flex-row sm:items-center sm:justify-between dark:border-slate-800 dark:bg-slate-900">
-        {/* Direction Switcher */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-bold text-slate-900 dark:text-slate-100">Direction:</span>
-          <div className="inline-flex rounded-lg border border-slate-200 bg-slate-100 p-1 dark:border-slate-700 dark:bg-slate-800">
-            <button
-              type="button"
-              onClick={() => handleDirectionChange('morse-to-text')}
-              className={`touch-target rounded-md px-3 py-1 text-xs font-semibold transition-all ${
-                direction === 'morse-to-text'
-                  ? 'bg-white text-teal-800 shadow-2xs dark:bg-slate-900 dark:text-teal-300'
-                  : 'text-slate-600 dark:text-slate-400'
-              }`}
-            >
-              Morse &rarr; Text
-            </button>
-            <button
-              type="button"
-              onClick={() => handleDirectionChange('text-to-morse')}
-              className={`touch-target rounded-md px-3 py-1 text-xs font-semibold transition-all ${
-                direction === 'text-to-morse'
-                  ? 'bg-white text-teal-800 shadow-2xs dark:bg-slate-900 dark:text-teal-300'
-                  : 'text-slate-600 dark:text-slate-400'
-              }`}
-            >
-              Text &rarr; Morse
-            </button>
-            <button
-              type="button"
-              onClick={() => handleDirectionChange('audio-to-text')}
-              className={`touch-target rounded-md px-3 py-1 text-xs font-semibold transition-all ${
-                direction === 'audio-to-text'
-                  ? 'bg-white text-teal-800 shadow-2xs dark:bg-slate-900 dark:text-teal-300'
-                  : 'text-slate-600 dark:text-slate-400'
-              }`}
-            >
-              Audio &rarr; Text
-            </button>
-          </div>
-        </div>
+    <div className="studio-workbench overflow-hidden rounded-3xl border border-slate-200/90 bg-white/95 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/95">
+      {/* Top Accent Gradient Bar */}
+      <div
+        aria-hidden="true"
+        className="h-1 w-full bg-gradient-to-r from-teal-600 via-teal-500 to-amber-500 dark:from-teal-400 dark:via-teal-300 dark:to-amber-400"
+      />
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-1.5">
-          {(
-            [
-              { key: 'all', label: 'All' },
-              { key: 'letter', label: 'Letters' },
-              { key: 'number', label: 'Numbers' },
-              { key: 'punctuation', label: 'Punctuation' },
-              { key: 'weak', label: 'Weak Focus' },
-            ] as const
-          ).map((cat) => (
-            <button
-              key={cat.key}
-              type="button"
-              onClick={() => handleCategoryChange(cat.key)}
-              className={`touch-target rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors ${
-                category === cat.key
-                  ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-600'
-                  : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Flashcard Drill Card */}
-      {currentQuestion ? (
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
-          {/* Card Header & Session Stats */}
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4 dark:border-slate-800">
-            <span className="font-mono text-xs font-semibold text-slate-500 dark:text-slate-400">
-              Drill {currentIndex + 1} of {queue.length}
+      {/* Unified Command & Filter Deck */}
+      <div className="border-b border-slate-200/90 bg-slate-50/80 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/70">
+        {/* Row 1: Direction Mode Switcher & Session Telemetry */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          {/* Direction Switcher */}
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Mode:
             </span>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                Score: <strong className="text-teal-800 dark:text-teal-300">{score.correct}</strong> / {score.total}
-              </span>
-              {score.total > 0 && (
-                <span className="text-xs text-slate-500">
-                  ({Math.round((score.correct / score.total) * 100)}%)
-                </span>
-              )}
+            <div
+              role="group"
+              aria-label="Practice training direction"
+              className="inline-flex rounded-xl border border-slate-300/80 bg-white p-1 shadow-2xs dark:border-slate-700 dark:bg-slate-900"
+            >
+              <button
+                type="button"
+                onClick={() => handleDirectionChange('morse-to-text')}
+                aria-pressed={direction === 'morse-to-text'}
+                className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
+                  direction === 'morse-to-text'
+                    ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-400 dark:text-slate-950'
+                    : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'
+                }`}
+              >
+                <span>Morse</span>
+                <span aria-hidden="true" className="font-mono text-xs opacity-75">&rarr;</span>
+                <span>Text</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDirectionChange('text-to-morse')}
+                aria-pressed={direction === 'text-to-morse'}
+                className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
+                  direction === 'text-to-morse'
+                    ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-400 dark:text-slate-950'
+                    : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'
+                }`}
+              >
+                <span>Text</span>
+                <span aria-hidden="true" className="font-mono text-xs opacity-75">&rarr;</span>
+                <span>Morse</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDirectionChange('audio-to-text')}
+                aria-pressed={direction === 'audio-to-text'}
+                className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
+                  direction === 'audio-to-text'
+                    ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-400 dark:text-slate-950'
+                    : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+                <span>Audio</span>
+                <span aria-hidden="true" className="font-mono text-xs opacity-75">&rarr;</span>
+                <span>Text</span>
+              </button>
             </div>
           </div>
 
-          {/* Prompt Display */}
-          <div className="my-8 flex flex-col items-center justify-center text-center">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider dark:text-slate-400">
+          {/* Live Session Telemetry Readout */}
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-xs font-semibold text-slate-700 shadow-2xs dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+              Drill {currentIndex + 1} / {queue.length}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800 dark:border-teal-800/80 dark:bg-teal-950/70 dark:text-teal-300">
+              Score: {score.correct} / {score.total}
+              {score.total > 0 && (
+                <span className="font-mono text-[11px] font-semibold text-teal-600 dark:text-teal-400">
+                  ({Math.round((score.correct / score.total) * 100)}%)
+                </span>
+              )}
+            </span>
+          </div>
+        </div>
+
+        {/* Row 2: Category Filter Selector & Reset Action */}
+        <div className="mt-3.5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/70 pt-3 dark:border-slate-800/70">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Pool:
+            </span>
+            <div
+              role="tablist"
+              aria-label="Character categories"
+              className="inline-flex flex-wrap items-center rounded-xl border border-slate-300/80 bg-white p-1 shadow-2xs dark:border-slate-700 dark:bg-slate-900"
+            >
+              {(
+                [
+                  { key: 'all', label: 'All (54)' },
+                  { key: 'letter', label: 'Letters (A–Z)' },
+                  { key: 'number', label: 'Numbers (0–9)' },
+                  { key: 'punctuation', label: 'Punctuation' },
+                  { key: 'weak', label: 'Weak Focus' },
+                ] as const
+              ).map((cat) => (
+                <button
+                  key={cat.key}
+                  type="button"
+                  role="tab"
+                  aria-selected={category === cat.key}
+                  onClick={() => handleCategoryChange(cat.key)}
+                  className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-bold transition-all ${
+                    category === cat.key
+                      ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-400 dark:text-slate-950'
+                      : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'
+                  }`}
+                >
+                  {cat.key === 'weak' && (
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full ${
+                        category === 'weak' ? 'bg-amber-300' : 'bg-amber-500'
+                      }`}
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span>{cat.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Shuffle / New Queue Action */}
+          <button
+            type="button"
+            onClick={() => resetSessionWith(direction, category)}
+            className="btn-tactile touch-target inline-flex items-center gap-1.5 rounded-xl border border-slate-300/80 bg-white px-3 py-1.5 text-xs font-bold text-slate-700 shadow-2xs transition-all hover:border-teal-600 hover:bg-slate-50 hover:text-teal-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-teal-400 dark:hover:text-teal-200"
+            title="Start a fresh practice queue"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5 text-teal-700 dark:text-teal-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
+            </svg>
+            <span>New Set</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Main Flashcard Drill Stage */}
+      {currentQuestion ? (
+        <div className="p-6 sm:p-8">
+          {/* Mode Guidance & Prompt Stage */}
+          <div className="mx-auto max-w-lg text-center">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-200/90 bg-teal-50 px-3.5 py-1 text-xs font-bold text-teal-800 dark:border-teal-800/60 dark:bg-teal-950/60 dark:text-teal-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-600 dark:bg-teal-400" aria-hidden="true" />
               {direction === 'text-to-morse'
                 ? 'Convert this character to Morse code'
                 : direction === 'audio-to-text'
@@ -217,15 +289,23 @@ export function PracticeClient() {
                 : 'Identify this Morse sequence'}
             </span>
 
-            <div className="mt-4 flex items-center justify-center gap-4">
-              <span className={`text-4xl font-extrabold text-slate-900 sm:text-5xl dark:text-slate-100 ${
-                direction === 'morse-to-text' ? 'font-mono tracking-widest text-teal-800 dark:text-teal-400' : ''
-              }`}>
-                {currentQuestion.displayPrompt}
-              </span>
+            {/* Elevated Prompt Showcase */}
+            <div className="my-6 flex items-center justify-center gap-4">
+              <div className="inline-flex min-h-[110px] min-w-[160px] items-center justify-center rounded-2xl border border-slate-200/90 bg-slate-50/80 px-8 py-5 shadow-xs dark:border-slate-800 dark:bg-slate-950/80">
+                <span
+                  className={`text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl dark:text-slate-100 ${
+                    direction === 'morse-to-text' ? 'font-mono tracking-widest text-teal-700 dark:text-teal-300' : ''
+                  }`}
+                >
+                  {currentQuestion.displayPrompt}
+                </span>
+              </div>
 
               {currentQuestion.audioMorse && (
-                <AudioPreviewButton morse={currentQuestion.audioMorse} label="Play Tone" />
+                <div className="flex flex-col items-center gap-1.5">
+                  <AudioPreviewButton morse={currentQuestion.audioMorse} label="Play Tone" />
+                  <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400">15 WPM CW</span>
+                </div>
               )}
             </div>
           </div>
@@ -245,7 +325,7 @@ export function PracticeClient() {
                       ? 'Type dots (.) and dashes (-)...'
                       : 'Type the character (e.g. S)...'
                   }
-                  className="w-full rounded-lg border border-slate-300 bg-slate-50/70 p-3.5 text-center text-lg font-bold text-slate-900 placeholder-slate-400 focus:border-teal-700 focus:bg-white focus:outline-hidden focus:ring-1 focus:ring-teal-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-teal-400 dark:focus:bg-slate-900"
+                  className="w-full rounded-2xl border border-slate-300 bg-slate-50/70 p-4 text-center text-xl font-bold text-slate-900 placeholder-slate-400 transition-all focus:border-teal-700 focus:bg-white focus:outline-hidden focus:ring-4 focus:ring-teal-700/10 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-teal-400 dark:focus:bg-slate-900 dark:focus:ring-teal-400/15"
                   aria-label="Your answer input"
                 />
               </div>
@@ -256,7 +336,7 @@ export function PracticeClient() {
                   <button
                     type="button"
                     onClick={() => appendSymbol('.')}
-                    className="touch-target flex-1 rounded-lg border border-slate-300 bg-slate-100 py-2 font-mono text-xl font-extrabold text-slate-800 shadow-2xs hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                    className="btn-tactile touch-target flex-1 rounded-xl border border-slate-300 bg-white py-2.5 font-mono text-xl font-extrabold text-slate-800 shadow-2xs hover:border-teal-500 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700"
                     title="Insert dot"
                   >
                     &bull; (Dot)
@@ -264,7 +344,7 @@ export function PracticeClient() {
                   <button
                     type="button"
                     onClick={() => appendSymbol('-')}
-                    className="touch-target flex-1 rounded-lg border border-slate-300 bg-slate-100 py-2 font-mono text-xl font-extrabold text-slate-800 shadow-2xs hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                    className="btn-tactile touch-target flex-1 rounded-xl border border-slate-300 bg-white py-2.5 font-mono text-xl font-extrabold text-slate-800 shadow-2xs hover:border-teal-500 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700"
                     title="Insert dash"
                   >
                     &mdash; (Dash)
@@ -272,7 +352,7 @@ export function PracticeClient() {
                   <button
                     type="button"
                     onClick={() => appendSymbol(' ')}
-                    className="touch-target rounded-lg border border-slate-300 bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                    className="btn-tactile touch-target rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-2xs hover:border-teal-500 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700"
                     title="Insert space"
                   >
                     Space
@@ -285,18 +365,20 @@ export function PracticeClient() {
                 <button
                   type="submit"
                   disabled={!userAnswer.trim()}
-                  className="touch-target mt-2 w-full rounded-lg bg-teal-700 py-3 text-sm font-bold text-white shadow-xs transition-colors hover:bg-teal-800 disabled:opacity-50 dark:bg-teal-600 dark:hover:bg-teal-500"
+                  className="btn-tactile touch-target mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-700 to-teal-800 py-3 text-sm font-bold text-white shadow-sm transition-all hover:from-teal-800 hover:to-teal-900 disabled:opacity-50 dark:from-teal-400 dark:to-teal-500 dark:text-slate-950 dark:hover:from-teal-300 dark:hover:to-teal-400"
                 >
-                  Check Answer
+                  <span>Check Answer</span>
+                  <span className="hidden text-xs opacity-70 sm:inline">&larr; Enter &crarr;</span>
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={handleNext}
                   autoFocus
-                  className="touch-target mt-2 w-full rounded-lg bg-teal-700 py-3 text-sm font-bold text-white shadow-xs transition-colors hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500"
+                  className="btn-tactile touch-target mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-700 to-teal-800 py-3 text-sm font-bold text-white shadow-sm transition-all hover:from-teal-800 hover:to-teal-900 dark:from-teal-400 dark:to-teal-500 dark:text-slate-950 dark:hover:from-teal-300 dark:hover:to-teal-400"
                 >
-                  {currentIndex < queue.length - 1 ? 'Next Drill &rarr;' : 'Restart New Session &rarr;'}
+                  <span>{currentIndex < queue.length - 1 ? 'Next Drill' : 'Restart New Session'}</span>
+                  <span aria-hidden="true">&rarr;</span>
                 </button>
               )}
             </div>
@@ -306,18 +388,20 @@ export function PracticeClient() {
           {isSubmitted && lastEvaluation && (
             <div
               role="status"
-              className={`mx-auto mt-6 max-w-md rounded-lg border p-4 text-xs ${
+              className={`mx-auto mt-6 max-w-md rounded-2xl border p-4.5 text-xs transition-all ${
                 lastEvaluation.isCorrect
                   ? 'border-emerald-300 bg-emerald-50 text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200'
                   : 'border-rose-300 bg-rose-50 text-rose-950 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200'
               }`}
             >
-              <div className="flex items-start gap-2">
-                <span className="text-base font-bold">
+              <div className="flex items-start gap-3">
+                <span className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-bold text-sm text-white ${
+                  lastEvaluation.isCorrect ? 'bg-emerald-600' : 'bg-rose-600'
+                }`}>
                   {lastEvaluation.isCorrect ? '✓' : '✗'}
                 </span>
-                <div>
-                  <p className="font-bold text-sm">
+                <div className="flex-1">
+                  <p className="text-sm font-bold">
                     {lastEvaluation.isCorrect ? 'Spot on! Correct answer.' : `Incorrect. Expected: ${currentQuestion.expectedAnswer}`}
                   </p>
                   <p className="mt-1 leading-relaxed text-slate-700 dark:text-slate-300">
@@ -329,16 +413,24 @@ export function PracticeClient() {
           )}
         </div>
       ) : (
-        <div className="rounded-xl border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
-          <p className="text-slate-600 dark:text-slate-400">
-            No characters available for this filter.
+        <div className="p-10 text-center">
+          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
+            No Qualified Weak Characters Found
+          </h3>
+          <p className="mx-auto mt-1 max-w-sm text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+            You currently have no characters with &gt;1 attempt and &lt;70% accuracy. Practice other categories to build your local error history!
           </p>
           <button
             type="button"
             onClick={() => setCategory('all')}
-            className="touch-target mt-3 inline-flex items-center rounded-lg bg-teal-700 px-4 py-2 text-xs font-semibold text-white"
+            className="btn-tactile touch-target mt-4 inline-flex items-center rounded-xl bg-teal-700 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-400 dark:text-slate-950 dark:hover:bg-teal-300"
           >
-            Reset Filter to All
+            Reset Filter to All (54)
           </button>
         </div>
       )}

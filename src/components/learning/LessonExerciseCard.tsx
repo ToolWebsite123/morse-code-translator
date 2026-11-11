@@ -33,17 +33,22 @@ export function LessonExerciseCard({ lessonSlug, exercise, onCompleted }: Lesson
   };
 
   return (
-    <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-5 shadow-xs dark:border-teal-900/60 dark:bg-teal-950/20">
-      <div className="flex items-center gap-2">
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-teal-700 text-xs font-bold text-white dark:bg-teal-600">
+    <div className="table-box-glow rounded-2xl border border-teal-200/90 bg-teal-50/50 p-6 shadow-xs backdrop-blur-md dark:border-teal-900/60 dark:bg-teal-950/20 sm:p-7">
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-teal-700 text-xs font-bold text-white shadow-2xs dark:bg-teal-600">
           ?
         </span>
-        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
-          Comprehension Check
-        </h3>
+        <div>
+          <h3 className="text-sm font-bold tracking-tight text-slate-900 dark:text-slate-100">
+            Comprehension Check &bull; Quick Quiz
+          </h3>
+          <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            Select the correct answer to mark this lesson as completed
+          </p>
+        </div>
       </div>
 
-      <p className="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-200">
+      <p className="mt-3.5 text-base font-bold text-slate-900 dark:text-slate-100">
         {exercise.question}
       </p>
 
@@ -55,19 +60,19 @@ export function LessonExerciseCard({ lessonSlug, exercise, onCompleted }: Lesson
 
       {/* Options Buttons */}
       {exercise.options && exercise.options.length > 0 && (
-        <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
           {exercise.options.map((option) => {
             const isThisSelected = selectedAnswer === option;
             const isThisCorrect = option.trim().toLowerCase() === exercise.expectedAnswer.trim().toLowerCase();
 
             let optionStyle =
-              'border-slate-300 bg-white text-slate-800 hover:border-teal-600 hover:bg-teal-50/50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-teal-500';
+              'border-slate-200 bg-white text-slate-800 hover:border-teal-600 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-teal-500';
 
             if (isSubmitted) {
               if (isThisSelected && isThisCorrect) {
-                optionStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-bold dark:border-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-200';
+                optionStyle = 'border-emerald-500 bg-emerald-50 text-emerald-950 font-bold dark:border-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-200';
               } else if (isThisSelected && !isThisCorrect) {
-                optionStyle = 'border-rose-400 bg-rose-50 text-rose-900 font-bold dark:border-rose-700 dark:bg-rose-950/60 dark:text-rose-200';
+                optionStyle = 'border-rose-400 bg-rose-50 text-rose-950 font-bold dark:border-rose-700 dark:bg-rose-950/60 dark:text-rose-200';
               } else if (isThisCorrect) {
                 optionStyle = 'border-emerald-500 bg-emerald-50/60 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300';
               }
@@ -79,11 +84,11 @@ export function LessonExerciseCard({ lessonSlug, exercise, onCompleted }: Lesson
                 type="button"
                 onClick={() => handleSelectOption(option)}
                 disabled={isSubmitted && isCorrect}
-                className={`touch-target flex items-center justify-between rounded-lg border p-3 text-left text-xs font-medium transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${optionStyle}`}
+                className={`btn-tactile touch-target flex items-center justify-between rounded-xl border p-3.5 text-left text-xs font-semibold shadow-2xs transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${optionStyle}`}
               >
                 <span>{option}</span>
                 {isSubmitted && isThisSelected && (
-                  <span>{isThisCorrect ? '✓' : '✗'}</span>
+                  <span className="font-extrabold text-base">{isThisCorrect ? '✓' : '✗'}</span>
                 )}
               </button>
             );
@@ -93,16 +98,17 @@ export function LessonExerciseCard({ lessonSlug, exercise, onCompleted }: Lesson
 
       {/* Hint toggle if requested */}
       {exercise.hint && !isCorrect && (
-        <div className="mt-3">
+        <div className="mt-3.5">
           <button
             type="button"
             onClick={() => setShowHint(!showHint)}
-            className="text-xs font-semibold text-teal-700 hover:underline dark:text-teal-400"
+            className="btn-tactile inline-flex items-center gap-1 text-xs font-semibold text-teal-700 hover:underline dark:text-teal-400"
           >
-            {showHint ? 'Hide hint' : 'Need a hint?'}
+            <span>💡</span>
+            <span>{showHint ? 'Hide Hint' : 'Need a hint?'}</span>
           </button>
           {showHint && (
-            <p className="mt-1 text-xs text-slate-600 italic dark:text-slate-400">
+            <p className="mt-1.5 rounded-lg border border-teal-200/60 bg-teal-50/60 p-2.5 text-xs text-slate-700 italic dark:border-teal-900/40 dark:bg-teal-950/30 dark:text-slate-300">
               Hint: {exercise.hint}
             </p>
           )}
@@ -113,18 +119,18 @@ export function LessonExerciseCard({ lessonSlug, exercise, onCompleted }: Lesson
       {isSubmitted && (
         <div
           role="status"
-          className={`mt-4 rounded-lg border p-3.5 text-xs ${
+          className={`mt-5 rounded-xl border p-4 text-xs ${
             isCorrect
-              ? 'border-emerald-300 bg-emerald-50 text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200'
-              : 'border-rose-300 bg-rose-50 text-rose-950 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200'
+              ? 'border-emerald-300 bg-emerald-50 text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200'
+              : 'border-rose-300 bg-rose-50 text-rose-950 dark:border-rose-800 dark:bg-rose-950/50 dark:text-rose-200'
           }`}
         >
-          <div className="flex items-start justify-between gap-2">
+          <div className="flex items-start justify-between gap-3">
             <div>
               <p className="font-bold text-sm">
-                {isCorrect ? '✓ Correct! Lesson Completed.' : '✗ Not quite. Try again!'}
+                {isCorrect ? '🎉 Correct! Lesson marked as completed.' : '❌ Not quite right. Review the explanation and try again!'}
               </p>
-              <p className="mt-1 leading-relaxed">
+              <p className="mt-1.5 leading-relaxed text-xs">
                 {exercise.explanation}
               </p>
             </div>
@@ -132,7 +138,7 @@ export function LessonExerciseCard({ lessonSlug, exercise, onCompleted }: Lesson
               <button
                 type="button"
                 onClick={handleReset}
-                className="shrink-0 rounded-md border border-rose-300 bg-white px-2.5 py-1 text-xs font-bold text-rose-800 hover:bg-rose-100 dark:border-rose-700 dark:bg-slate-900 dark:text-rose-300"
+                className="btn-tactile shrink-0 rounded-lg border border-rose-300 bg-white px-3 py-1.5 text-xs font-bold text-rose-800 shadow-2xs hover:bg-rose-100 dark:border-rose-700 dark:bg-slate-900 dark:text-rose-300"
               >
                 Retry
               </button>

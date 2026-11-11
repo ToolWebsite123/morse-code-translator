@@ -43,6 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: getAbsoluteUrl('/audio-decoder'),
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: getAbsoluteUrl('/about'),
       lastModified: currentDate,
       changeFrequency: 'monthly',
@@ -55,10 +61,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: getAbsoluteUrl('/faq'),
+      url: getAbsoluteUrl('/contact'),
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.7,
+    },
+    {
+      url: getAbsoluteUrl('/terms'),
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: getAbsoluteUrl('/disclaimer'),
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
   ];
 

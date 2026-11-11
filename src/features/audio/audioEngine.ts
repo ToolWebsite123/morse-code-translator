@@ -5,7 +5,11 @@
  * Web Audio API (OscillatorNode + GainNode) with click-free audio envelopes.
  */
 
-import { parseMorseToPlaybackEvents, type PlaybackEvent } from '@/lib/morse';
+import {
+  parseMorseToPlaybackEvents,
+  type PlaybackEvent,
+  type MorseTimingConstants,
+} from '@/lib/morse';
 
 export interface AudioPlaybackCallbacks {
   onProgress?: (eventIndex: number, currentEvent: PlaybackEvent | null) => void;
@@ -40,13 +44,13 @@ export class MorseAudioEngine {
    * Plays a Morse code string acoustically with synchronized callbacks.
    *
    * @param morse - The Morse string (e.g. "... --- ...")
-   * @param wpm - Speed in Words Per Minute (5–30, default 15)
+   * @param timingOrWpm - Speed in WPM (number 5–30) or a custom MorseTimingConstants/Farnsworth object
    * @param frequencyHz - Tone frequency in Hertz (400–800, default 600)
    * @param callbacks - Event callbacks for visual timeline and screen flash synchronization
    */
   public async play(
     morse: string,
-    wpm: number = 15,
+    timingOrWpm: number | MorseTimingConstants = 15,
     frequencyHz: number = 600,
     callbacks?: AudioPlaybackCallbacks
   ): Promise<void> {
@@ -57,7 +61,7 @@ export class MorseAudioEngine {
       return;
     }
 
-    const events = parseMorseToPlaybackEvents(morse, wpm);
+    const events = parseMorseToPlaybackEvents(morse, timingOrWpm);
     if (events.length === 0) return;
 
     const ctx = await this.getContext();

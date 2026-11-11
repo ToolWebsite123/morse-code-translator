@@ -1,11 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
-import type { QuizQuestion, QuizUserAnswer } from '@/types/learning';
+import type { QuizQuestion, QuizUserAnswer, LearningProgress } from '@/types/learning';
 import { generateQuiz, evaluateQuizSubmission } from '@/lib/learning/quizzes';
-import { recordQuizResult, getLearningProgress } from '@/lib/storage/progress';
+import { recordQuizResult, getLearningProgress, INITIAL_LEARNING_PROGRESS } from '@/lib/storage/progress';
 import { AudioPreviewButton } from './AudioPreviewButton';
+
+function subscribeQuiz(callback: () => void) {
+  window.addEventListener('morse-progress-change', callback);
+  window.addEventListener('storage', callback);
+  return () => {
+    window.removeEventListener('morse-progress-change', callback);
+    window.removeEventListener('storage', callback);
+  };
+}
+
+function getQuizSnapshot(): LearningProgress {
+  return getLearningProgress();
+}
+
+function getServerQuizSnapshot(): LearningProgress {
+  return INITIAL_LEARNING_PROGRESS;
+}
 
 export function QuizClient() {
   const [phase, setPhase] = useState<'intro' | 'active' | 'result'>('intro');
@@ -19,9 +36,8 @@ export function QuizClient() {
     reviewList: QuizUserAnswer[];
   } | null>(null);
 
-  const [history, setHistory] = useState<Array<{ date: string; score: number; total: number; percentage: number }>>(() => {
-    return getLearningProgress().quizHistory || [];
-  });
+  const progress = useSyncExternalStore(subscribeQuiz, getQuizSnapshot, getServerQuizSnapshot);
+  const history = progress.quizHistory || [];
 
   const handleStartQuiz = () => {
     const newQuestions = generateQuiz(10);
@@ -57,8 +73,7 @@ export function QuizClient() {
   const handleSubmitQuiz = () => {
     const evalResult = evaluateQuizSubmission(questions, userAnswers);
     setResults(evalResult);
-    const updated = recordQuizResult(evalResult.score, evalResult.total);
-    setHistory(updated.quizHistory);
+    recordQuizResult(evalResult.score, evalResult.total);
     setPhase('result');
   };
 

@@ -15,6 +15,13 @@ export interface MorseTimingConstants {
   interWordGapMs: number; // 7T (gap between words)
 }
 
+export interface FarnsworthTimingConstants extends MorseTimingConstants {
+  isFarnsworth: boolean;
+  characterWpm: number;
+  effectiveWpm: number;
+  spacingUnitMs: number; // S
+}
+
 export type PlaybackEventType = 'tone' | 'gap';
 
 export interface PlaybackEvent {
@@ -48,22 +55,72 @@ export function calculateMorseTiming(wpm: number): MorseTimingConstants {
 }
 
 /**
+ * Calculates Farnsworth Morse timing durations.
+ * Character elements run at a faster character speed while lengthening
+ * inter-character and inter-word gaps so the overall effective speed is slower.
+ *
+ * Formula (PRD Section 15.8):
+ * T = 1200 / characterWpm
+ * S = (60000 / effectiveWpm - 31T) / 19
+ * interCharGap = 3S, interWordGap = 7S
+ */
+export function calculateFarnsworthTiming(
+  characterWpm: number,
+  effectiveWpm: number
+): FarnsworthTimingConstants {
+  const cWpm = Math.max(5, Math.min(30, Math.round(characterWpm)));
+  const eWpm = Math.max(5, Math.min(cWpm, Math.round(effectiveWpm)));
+
+  const T = 1200 / cWpm;
+
+  if (eWpm === cWpm) {
+    const std = calculateMorseTiming(cWpm);
+    return {
+      ...std,
+      isFarnsworth: false,
+      characterWpm: cWpm,
+      effectiveWpm: eWpm,
+      spacingUnitMs: T,
+    };
+  }
+
+  const S = Math.max(T, (60000 / eWpm - 31 * T) / 19);
+
+  return {
+    wpm: cWpm,
+    unitDurationMs: T,
+    dotDurationMs: T,
+    dashDurationMs: T * 3,
+    intraCharGapMs: T,
+    interCharGapMs: S * 3,
+    interWordGapMs: S * 7,
+    isFarnsworth: true,
+    characterWpm: cWpm,
+    effectiveWpm: eWpm,
+    spacingUnitMs: S,
+  };
+}
+
+/**
  * Parses a Morse code string into an ordered sequence of tone and silence
- * events suitable for Web Audio synthesis and synchronized visual timeline playback.
+ * events suitable for Web Audio synthesis, WAV export, and synchronized visual playback.
  *
  * @param morse - Normalized Morse string (e.g. ".... . / .--")
- * @param wpm - Words per minute (5–30, default 15)
+ * @param timingOrWpm - MorseTimingConstants object or WPM number (5–30, default 15)
  * @returns Array of playback events with millisecond durations
  */
 export function parseMorseToPlaybackEvents(
   morse: string,
-  wpm: number = 15
+  timingOrWpm: number | MorseTimingConstants = 15
 ): PlaybackEvent[] {
   if (!morse || morse.trim().length === 0) {
     return [];
   }
 
-  const timing = calculateMorseTiming(wpm);
+  const timing: MorseTimingConstants =
+    typeof timingOrWpm === 'number'
+      ? calculateMorseTiming(timingOrWpm)
+      : timingOrWpm;
   const events: PlaybackEvent[] = [];
 
   // Split into words by '/'

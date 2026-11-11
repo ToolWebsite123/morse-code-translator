@@ -1,7 +1,22 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { SITE_CONFIG } from '@/lib/seo/siteConfig';
 import { JsonLd } from '@/components/seo/JsonLd';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans-app',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono-app',
+  weight: ['400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -76,12 +91,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <JsonLd data={websiteSchema} />
       </head>
-      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-[#0B1220] dark:text-slate-100">
+      <body className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased dark:bg-[#0B1220] dark:text-slate-100">
         {children}
       </body>
     </html>

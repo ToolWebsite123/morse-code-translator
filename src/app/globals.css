@@ -11,9 +11,14 @@
   --surface: #FFFFFF;
   --text-primary: #0F172A;
   --text-muted: #475569;
-  --border: #CBD5E1;
+  --border: #E2E8F0;
   --error: #B91C1C;
   --focus-ring: #0F766E;
+
+  /* 2026 surface system: soft glow + glass layers */
+  --glow-primary: rgb(15 118 110 / 0.15);
+  --glow-accent: rgb(217 119 6 / 0.12);
+  --grid-line: rgb(15 23 42 / 0.05);
 }
 
 .dark {
@@ -25,9 +30,13 @@
   --surface: #111827;
   --text-primary: #F1F5F9;
   --text-muted: #94A3B8;
-  --border: #334155;
+  --border: #1E293B;
   --error: #FCA5A5;
   --focus-ring: #2DD4BF;
+
+  --glow-primary: rgb(45 212 191 / 0.15);
+  --glow-accent: rgb(251 191 36 / 0.10);
+  --grid-line: rgb(148 163 184 / 0.06);
 }
 
 @theme {
@@ -43,7 +52,18 @@
   --color-brand-error: var(--error);
   --color-brand-focus: var(--focus-ring);
 
-  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Typography: Inter (primary sans) + JetBrains Mono for telegraphic/code data */
+  --font-sans: var(--font-sans-app), Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-mono-app), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -51,9 +71,42 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Global Font Consistency: Inter for all UI text, buttons, and inputs */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Monospace Font Enforcement: JetBrains Mono for telegraphic, code, and mono symbols */
+code,
+kbd,
+samp,
+pre,
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: rgb(45 212 191 / 0.3);
 }
 
 /* Accessible focus ring standard for keyboard navigation */
@@ -66,4 +119,277 @@ body {
 .touch-target {
   min-height: 44px;
   min-width: 44px;
+}
+
+/* Subtle engineering grid used behind hero + CTA surfaces */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Fades the grid out towards the edges */
+@utility mask-fade {
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 100%);
+}
+
+/* Hide native disclosure markers for custom accordions */
+@utility summary-clean {
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Custom 2026 Studio Sliders */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: #E2E8F0;
+  outline: none;
+}
+
+.dark input[type="range"] {
+  background: #334155;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0F766E;
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.dark input[type="range"]::-webkit-slider-thumb {
+  background: #2DD4BF;
+  border: 2px solid #0F172A;
+  box-shadow: 0 0 8px rgba(45, 212, 191, 0.5);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0F766E;
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.dark input[type="range"]::-moz-range-thumb {
+  background: #2DD4BF;
+  border: 2px solid #0F172A;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* Audio Dock Dedicated Sliders (Sleek hardware appearance in both themes) */
+.audio-dock input[type="range"] {
+  background: #334155 !important;
+}
+
+.audio-dock input[type="range"]::-webkit-slider-thumb {
+  background: #2DD4BF !important;
+  border: 2px solid #0F172A !important;
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.6) !important;
+}
+
+.audio-dock input[type="range"]::-moz-range-thumb {
+  background: #2DD4BF !important;
+  border: 2px solid #0F172A !important;
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.6) !important;
+}
+
+/* =========================================================================
+   2026 Table & Box Animations: Atmospheric Glow (No Jumping / Shifting)
+   ========================================================================= */
+
+/* Studio Console Workbench (Elevated Hero Product Container) */
+.studio-workbench {
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.studio-workbench:hover {
+  box-shadow: 0 30px 70px -15px rgba(15, 118, 110, 0.12), 0 0 0 1px rgba(15, 118, 110, 0.25), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.dark .studio-workbench {
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.dark .studio-workbench:hover {
+  box-shadow: 0 30px 75px -20px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(45, 212, 191, 0.18), 0 0 0 1px rgba(45, 212, 191, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Studio Elevated Card */
+.studio-card {
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(226, 232, 240, 0.7);
+}
+
+.studio-card:hover {
+  border-color: rgba(15, 118, 110, 0.4);
+  box-shadow: 0 15px 35px -10px rgba(15, 118, 110, 0.12), 0 0 0 1px rgba(15, 118, 110, 0.2);
+}
+
+.dark .studio-card {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.dark .studio-card:hover {
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 15px 40px -10px rgba(45, 212, 191, 0.15), 0 0 0 1px rgba(45, 212, 191, 0.25);
+}
+
+/* Table Box Glow: Steady container with smooth atmospheric border glow on hover */
+.table-box-glow {
+  transition: border-color 0.28s ease, box-shadow 0.28s ease, background-color 0.25s ease;
+  position: relative;
+}
+
+.table-box-glow:hover {
+  border-color: rgba(15, 118, 110, 0.45);
+  box-shadow: 0 10px 30px -10px rgba(15, 118, 110, 0.15), 0 0 15px -2px rgba(15, 118, 110, 0.08);
+}
+
+.dark .table-box-glow:hover {
+  border-color: rgba(45, 212, 191, 0.45);
+  box-shadow: 0 12px 35px -10px rgba(45, 212, 191, 0.2), 0 0 20px -2px rgba(45, 212, 191, 0.12);
+}
+
+/* Feature Box Glow for cards (Smooth border glow + gentle aura, zero jumping) */
+.box-glow {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.box-glow:hover {
+  border-color: rgba(15, 118, 110, 0.4);
+  box-shadow: 0 8px 24px -6px rgba(15, 118, 110, 0.12);
+}
+
+.dark .box-glow:hover {
+  border-color: rgba(45, 212, 191, 0.35);
+  box-shadow: 0 8px 24px -6px rgba(45, 212, 191, 0.15);
+}
+
+/* Table Row Hover: Sleek highlight with smooth left-accent beacon */
+.table-row-hover {
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+}
+
+.table-row-hover:hover {
+  background-color: rgba(15, 118, 110, 0.04);
+  box-shadow: inset 3px 0 0 #0F766E;
+}
+
+.dark .table-row-hover:hover {
+  background-color: rgba(45, 212, 191, 0.06);
+  box-shadow: inset 3px 0 0 #2DD4BF;
+}
+
+/* Tactile button press effect */
+.btn-tactile {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+}
+
+.btn-tactile:active {
+  transform: scale(0.97);
+}
+
+/* Keyframes for subtle animations */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3.5s ease-in-out infinite;
+}
+
+/* Premium Accordion Styling */
+details.accordion-card summary::-webkit-details-marker {
+  display: none;
+}
+
+details.accordion-card .chevron-icon {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+details.accordion-card[open] .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Tactile Telegraph Key */
+.telegraph-key {
+  position: relative;
+  transition: transform 0.08s ease, background-color 0.15s ease, box-shadow 0.1s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.telegraph-key:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Telemetry Metric Tile */
+.studio-metric-tile {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.studio-metric-tile:hover {
+  border-color: rgba(15, 118, 110, 0.35);
+}
+
+.dark .studio-metric-tile {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(30, 41, 59, 0.9);
+}
+
+.dark .studio-metric-tile:hover {
+  border-color: rgba(45, 212, 191, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .table-box-glow,
+  .table-box-glow:hover,
+  .box-glow,
+  .box-glow:hover,
+  .table-row-hover,
+  .table-row-hover:hover,
+  .btn-tactile,
+  .animate-pulse-subtle {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

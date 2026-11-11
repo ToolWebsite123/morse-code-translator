@@ -33,10 +33,10 @@ export function AudioPreviewButton({ morse, wpm = 15, label = 'Listen' }: AudioP
     <button
       type="button"
       onClick={handlePlay}
-      className={`touch-target inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus ${
+      className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus ${
         isPlaying
-          ? 'border-amber-400 bg-amber-50 text-amber-800 dark:border-amber-700 dark:bg-amber-950/60 dark:text-amber-300'
-          : 'border-slate-300 bg-white text-teal-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-teal-300 dark:hover:bg-slate-700'
+          ? 'border-amber-400 bg-amber-50 text-amber-800 shadow-xs dark:border-amber-700 dark:bg-amber-950/60 dark:text-amber-300'
+          : 'border-slate-300 bg-white text-teal-800 shadow-2xs hover:border-teal-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-teal-300 dark:hover:border-teal-500 dark:hover:bg-slate-700'
       }`}
       aria-label={`${isPlaying ? 'Stop' : 'Listen to'} Morse audio for ${morse}`}
     >
