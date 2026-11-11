@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 import { LESSONS } from '@/lib/learning/lessons';
 
+export const dynamic = 'force-static';
+
 /**
  * Generates the XML sitemap dynamically from published canonical pages only.
  * Adheres strictly to PRD Section 17.4 and FR-021.

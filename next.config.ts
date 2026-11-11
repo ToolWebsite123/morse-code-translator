@@ -1,8 +1,10 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
-  partialPrefetching: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
   turbopack: {
     rules: {
       '*.css': {
@@ -10,20 +12,6 @@ const nextConfig: NextConfig = {
         as: '*.css',
       },
     },
-  },
-  async redirects() {
-    return [
-      {
-        source: '/translator',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/faq',
-        destination: '/#faq',
-        permanent: true,
-      },
-    ];
   },
 };
 
