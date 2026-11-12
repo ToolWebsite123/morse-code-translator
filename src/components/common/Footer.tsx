@@ -144,7 +144,7 @@ export function Footer() {
                 </Link>
               </li>
               <li className="pt-1">
-                <span className="text-xs text-slate-500 dark:text-slate-400">
+                <span className="text-xs text-slate-600 dark:text-slate-300">
                   100% In-Browser Execution &bull; Zero Accounts
                 </span>
               </li>
@@ -157,7 +157,7 @@ export function Footer() {
           <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
             &copy; 2026 morsecodetranslatores.com. Free educational resource.
           </p>
-          <p className="mt-2 text-xs text-slate-500 sm:mt-0 dark:text-slate-400">
+          <p className="mt-2 text-xs text-slate-600 sm:mt-0 dark:text-slate-300">
             Designed for students, amateur radio hobbyists, and educators worldwide.
           </p>
         </div>

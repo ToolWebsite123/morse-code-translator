@@ -8,14 +8,12 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans-app',
-  weight: ['400', '500', '600', '700', '800'],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-mono-app',
-  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -86,19 +84,7 @@ const websiteSchema = {
   inLanguage: 'en',
 };
 
-const themeInitScript = `
-(function() {
-  try {
-    var stored = localStorage.getItem('morse_theme');
-    var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  } catch (e) {}
-})();
-`;
+const themeInitScript = `(function(){try{var s=localStorage.getItem('morse_theme');if(s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -109,9 +95,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <JsonLd data={websiteSchema} />
       </head>
       <body className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased dark:bg-[#0B1220] dark:text-slate-100">
+        <JsonLd data={websiteSchema} />
         {children}
       </body>
     </html>

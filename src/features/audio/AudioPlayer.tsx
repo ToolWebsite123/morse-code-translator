@@ -249,7 +249,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
             onChange={(e) => setWpm(Number(e.target.value))}
             className="mt-3.5 w-full cursor-pointer accent-teal-600 dark:accent-teal-400"
           />
-          <div className="mt-2 flex justify-between font-mono text-[10px] font-medium text-slate-500 dark:text-slate-400">
+          <div className="mt-2 flex justify-between font-mono text-[10px] font-medium text-slate-600 dark:text-slate-300">
             <span>5 WPM (Slow)</span>
             <span>15 WPM (Standard)</span>
             <span>30 WPM (Fast)</span>
@@ -282,7 +282,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
             onChange={(e) => setFrequencyHz(Number(e.target.value))}
             className="mt-3.5 w-full cursor-pointer accent-teal-600 dark:accent-teal-400"
           />
-          <div className="mt-2 flex justify-between font-mono text-[10px] font-medium text-slate-500 dark:text-slate-400">
+          <div className="mt-2 flex justify-between font-mono text-[10px] font-medium text-slate-600 dark:text-slate-300">
             <span>400 Hz (Low)</span>
             <span>600 Hz (CW)</span>
             <span>800 Hz (High)</span>
@@ -430,7 +430,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
           )}
         </div>
 
-        <p className="text-[11px] text-slate-500 dark:text-slate-400">
+        <p className="text-[11px] text-slate-600 dark:text-slate-300">
           On-screen optical beacon &bull; Reduced-motion safe
         </p>
       </div>

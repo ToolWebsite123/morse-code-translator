@@ -7,16 +7,16 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'SOS in Morse Code: ... --- ... Audio Tone, Meaning & Beacon Guide',
+  title: 'SOS in Morse Code (... --- ...)',
   description:
-    'Learn SOS in Morse code (... --- ...). Listen to authentic audio tones, simulate optical light flashes, discover its Titanic maritime history, and debunk common myths.',
+    'Learn the SOS Morse code signal (... --- ...). Listen to audio tones, simulate optical light flashes, and explore its Titanic maritime distress history.',
   alternates: {
     canonical: '/morse-code-sos',
   },
   openGraph: {
-    title: 'SOS in Morse Code: ... --- ... Audio Tone, Meaning & Beacon Guide',
+    title: 'SOS in Morse Code (... --- ...)',
     description:
-      'Learn SOS in Morse code (... --- ...). Listen to authentic audio tones, simulate optical light flashes, discover its Titanic maritime history, and debunk common myths.',
+      'Learn the SOS Morse code signal (... --- ...). Listen to audio tones, simulate optical light flashes, and explore its Titanic maritime distress history.',
     url: getAbsoluteUrl('/morse-code-sos'),
     siteName: 'Morse Code Translator',
     type: 'article',

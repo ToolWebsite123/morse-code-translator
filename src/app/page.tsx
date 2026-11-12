@@ -7,9 +7,14 @@ import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Morse Code Translator & Decoder — Audio Tone Player',
+  title: {
+    absolute: 'Morse Code Translator & Decoder — Audio Tone Player',
+  },
   description:
     'Translate text to Morse code and decode Morse code to text. Play audio tones with custom speed (WPM) & pitch, flash visual signals, and learn online.',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Morse Code Translator & Decoder — Audio Tone Player',
     description:
@@ -93,7 +98,6 @@ const homeSchemas = [
 export default function HomePage() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-clip bg-slate-50 dark:bg-[#0B1220]">
-      <link rel="canonical" href={getAbsoluteUrl('/')} />
       <JsonLd data={homeSchemas} />
       <Header />
 
@@ -120,11 +124,11 @@ export default function HomePage() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-600 dark:bg-teal-400" />
             </span>
             <span>Recommendation ITU-R M.1677-1 Standard</span>
-            <span className="text-teal-300 dark:text-teal-700">&bull;</span>
+            <span aria-hidden="true" className="text-teal-600 dark:text-teal-400">&bull;</span>
             <span className="font-mono text-[11px] font-bold tracking-widest text-teal-800 dark:text-teal-200">
               ••• ——— •••
             </span>
-            <span className="hidden text-teal-300 sm:inline dark:text-teal-700">&bull;</span>
+            <span aria-hidden="true" className="hidden text-teal-600 sm:inline dark:text-teal-400">&bull;</span>
             <span className="hidden text-teal-700 sm:inline dark:text-teal-300 font-medium">Browser-Local Execution</span>
           </div>
 
@@ -303,31 +307,31 @@ export default function HomePage() {
                     <tr className="table-row-hover">
                       <td className="py-3 pr-4 font-bold text-slate-900 dark:text-slate-100">Dot (Dit)</td>
                       <td className="py-3 pr-4"><span className="inline-flex rounded-md bg-teal-100 px-2 py-0.5 font-mono text-xs font-bold text-teal-900 dark:bg-teal-950 dark:text-teal-300">1T</span></td>
-                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-500">80 ms (at 15 WPM)</td>
+                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-600 dark:text-slate-300">80 ms (at 15 WPM)</td>
                       <td className="py-3 text-xs sm:text-sm">Base unit of continuous wave duration.</td>
                     </tr>
                     <tr className="table-row-hover">
                       <td className="py-3 pr-4 font-bold text-slate-900 dark:text-slate-100">Dash (Dah)</td>
                       <td className="py-3 pr-4"><span className="inline-flex rounded-md bg-teal-100 px-2 py-0.5 font-mono text-xs font-bold text-teal-900 dark:bg-teal-950 dark:text-teal-300">3T</span></td>
-                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-500">240 ms (at 15 WPM)</td>
+                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-600 dark:text-slate-300">240 ms (at 15 WPM)</td>
                       <td className="py-3 text-xs sm:text-sm">Exactly three times the duration of a dot.</td>
                     </tr>
                     <tr className="table-row-hover">
                       <td className="py-3 pr-4 font-bold text-slate-900 dark:text-slate-100">Intra-Character Gap</td>
                       <td className="py-3 pr-4"><span className="inline-flex rounded-md bg-amber-100 px-2 py-0.5 font-mono text-xs font-bold text-amber-900 dark:bg-amber-950 dark:text-amber-300">1T</span></td>
-                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-500">80 ms silence</td>
+                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-600 dark:text-slate-300">80 ms silence</td>
                       <td className="py-3 text-xs sm:text-sm">Silent pause between dots/dashes within a letter.</td>
                     </tr>
                     <tr className="table-row-hover">
                       <td className="py-3 pr-4 font-bold text-slate-900 dark:text-slate-100">Inter-Letter Gap</td>
                       <td className="py-3 pr-4"><span className="inline-flex rounded-md bg-amber-100 px-2 py-0.5 font-mono text-xs font-bold text-amber-900 dark:bg-amber-950 dark:text-amber-300">3T</span></td>
-                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-500">240 ms silence</td>
+                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-600 dark:text-slate-300">240 ms silence</td>
                       <td className="py-3 text-xs sm:text-sm">Silent pause between letters within a word.</td>
                     </tr>
                     <tr className="table-row-hover">
                       <td className="py-3 pr-4 font-bold text-slate-900 dark:text-slate-100">Inter-Word Gap</td>
                       <td className="py-3 pr-4"><span className="inline-flex rounded-md bg-amber-100 px-2 py-0.5 font-mono text-xs font-bold text-amber-900 dark:bg-amber-950 dark:text-amber-300">7T</span></td>
-                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-500">560 ms silence</td>
+                      <td className="hidden py-3 pr-6 sm:table-cell font-mono text-xs text-slate-600 dark:text-slate-300">560 ms silence</td>
                       <td className="py-3 text-xs sm:text-sm">Silent pause between distinct words (<code className="font-mono font-bold">/</code>).</td>
                     </tr>
                   </tbody>
@@ -473,7 +477,7 @@ export default function HomePage() {
             <div className="md:hidden mb-6 space-y-3.5">
               {/* Dot-Rooted Group */}
               <div className="rounded-xl border border-slate-200/80 bg-slate-50/50 p-3.5 dark:border-slate-800 dark:bg-slate-950/40">
-                <div className="mb-2 flex items-center justify-between border-b border-slate-200/70 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:border-slate-800 dark:text-slate-400">
+                <div className="mb-2 flex items-center justify-between border-b border-slate-200/70 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:border-slate-800 dark:text-slate-300">
                   <span>Dot-Rooted Elements</span>
                   <span className="font-mono text-[10px] text-teal-800 dark:text-teal-400">E · A · I · S</span>
                 </div>
@@ -512,7 +516,7 @@ export default function HomePage() {
 
               {/* Dash-Rooted Group */}
               <div className="rounded-xl border border-slate-200/80 bg-slate-50/50 p-3.5 dark:border-slate-800 dark:bg-slate-950/40">
-                <div className="mb-2 flex items-center justify-between border-b border-slate-200/70 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:border-slate-800 dark:text-slate-400">
+                <div className="mb-2 flex items-center justify-between border-b border-slate-200/70 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:border-slate-800 dark:text-slate-300">
                   <span>Dash-Rooted Elements</span>
                   <span className="font-mono text-[10px] text-teal-800 dark:text-teal-400">T · N · M · O</span>
                 </div>
@@ -601,7 +605,7 @@ export default function HomePage() {
                   <h3 className="mt-3 text-base font-bold text-slate-900 group-hover:text-teal-700 dark:text-slate-100 dark:group-hover:text-teal-400">Alphabet &amp; Chart</h3>
                   <p className="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">Complete 54-character reference table of letters A–Z, digits 0–9, and punctuation with audio.</p>
                 </div>
-                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-500 dark:border-slate-700/60 dark:text-slate-400">54 Characters &bull; Audio Tones</div>
+                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-600 dark:border-slate-700/60 dark:text-slate-300">54 Characters &bull; Audio Tones</div>
               </Link>
 
               <Link
@@ -616,7 +620,7 @@ export default function HomePage() {
                   <h3 className="mt-3 text-base font-bold text-slate-900 group-hover:text-teal-700 dark:text-slate-100 dark:group-hover:text-teal-400">Learn Morse Code</h3>
                   <p className="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">Structured curriculum covering telegraphy foundations, single-element letters, and timing.</p>
                 </div>
-                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-500 dark:border-slate-700/60 dark:text-slate-400">Foundations &rarr; Words</div>
+                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-600 dark:border-slate-700/60 dark:text-slate-300">Foundations &rarr; Words</div>
               </Link>
 
               <Link
@@ -631,7 +635,7 @@ export default function HomePage() {
                   <h3 className="mt-3 text-base font-bold text-slate-900 group-hover:text-teal-700 dark:text-slate-100 dark:group-hover:text-teal-400">Practice Drills</h3>
                   <p className="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">Build symbol recall speed with flashcards, audio drills, and accuracy-based weak focus.</p>
                 </div>
-                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-500 dark:border-slate-700/60 dark:text-slate-400">Flashcards &bull; Audio Drills</div>
+                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-600 dark:border-slate-700/60 dark:text-slate-300">Flashcards &bull; Audio Drills</div>
               </Link>
 
               <Link
@@ -646,7 +650,7 @@ export default function HomePage() {
                   <h3 className="mt-3 text-base font-bold text-slate-900 group-hover:text-teal-700 dark:text-slate-100 dark:group-hover:text-teal-400">Audio Decoder</h3>
                   <p className="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">Upload WAV, MP3, or OGG audio to automatically transcribe Morse tones into readable text.</p>
                 </div>
-                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-500 dark:border-slate-700/60 dark:text-slate-400">WAV / MP3 &bull; Browser-Local</div>
+                <div className="mt-4 border-t border-slate-200/60 pt-2 font-mono text-[11px] text-slate-600 dark:border-slate-700/60 dark:text-slate-300">WAV / MP3 &bull; Browser-Local</div>
               </Link>
             </div>
           </div>
@@ -675,13 +679,13 @@ export default function HomePage() {
               <details className="accordion-card group rounded-xl border border-slate-200/80 bg-slate-50 p-5 shadow-2xs transition-all dark:border-slate-800 dark:bg-slate-800/60">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 font-bold text-slate-900 dark:text-slate-100">
                   <span className="text-sm sm:text-base">What is the difference between a Morse code translator, generator, and decoder?</span>
-                  <span className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-400">
+                  <span aria-hidden="true" className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-300">
                     <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </span>
                 </summary>
-                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-400">
+                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-300">
                   These terms describe related aspects of the same utility: a generator encodes plain text into Morse code dots and dashes, a decoder translates dots and dashes back into readable text, and a translator performs both operations bidirectionally. This platform combines all three functions.
                 </div>
               </details>
@@ -689,13 +693,13 @@ export default function HomePage() {
               <details className="accordion-card group rounded-xl border border-slate-200/80 bg-slate-50 p-5 shadow-2xs transition-all dark:border-slate-800 dark:bg-slate-800/60">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 font-bold text-slate-900 dark:text-slate-100">
                   <span className="text-sm sm:text-base">How are letters and words separated in Morse code?</span>
-                  <span className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-400">
+                  <span aria-hidden="true" className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-300">
                     <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </span>
                 </summary>
-                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-400">
+                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-300">
                   Letters within a word are separated by a single space (representing 3 dot units in audio timing). Separate words are demarcated by a forward slash surrounded by spaces ( / ), representing a standard 7-dot silent pause.
                 </div>
               </details>
@@ -703,13 +707,13 @@ export default function HomePage() {
               <details className="accordion-card group rounded-xl border border-slate-200/80 bg-slate-50 p-5 shadow-2xs transition-all dark:border-slate-800 dark:bg-slate-800/60">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 font-bold text-slate-900 dark:text-slate-100">
                   <span className="text-sm sm:text-base">What is the emergency signal for SOS in Morse code?</span>
-                  <span className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-400">
+                  <span aria-hidden="true" className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-300">
                     <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </span>
                 </summary>
-                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-400">
+                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-300">
                   The international distress signal SOS is written in Morse code as ... --- ... (three dots, three dashes, three dots). When transmitted by telegraphers, it is sent as an unbroken procedural signal (prosign) without internal letter pauses.
                 </div>
               </details>
@@ -717,13 +721,13 @@ export default function HomePage() {
               <details className="accordion-card group rounded-xl border border-slate-200/80 bg-slate-50 p-5 shadow-2xs transition-all dark:border-slate-800 dark:bg-slate-800/60">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 font-bold text-slate-900 dark:text-slate-100">
                   <span className="text-sm sm:text-base">Does this translator send my text to an external server?</span>
-                  <span className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-400">
+                  <span aria-hidden="true" className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-300">
                     <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </span>
                 </summary>
-                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-400">
+                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-300">
                   No. Translation text is processed in your browser memory and is never transmitted over the network. Learning progress is stored locally on your device using localStorage, with zero third-party analytics or tracking.
                 </div>
               </details>
@@ -731,13 +735,13 @@ export default function HomePage() {
               <details className="accordion-card group rounded-xl border border-slate-200/80 bg-slate-50 p-5 shadow-2xs transition-all dark:border-slate-800 dark:bg-slate-800/60">
                 <summary className="flex cursor-pointer items-center justify-between gap-4 font-bold text-slate-900 dark:text-slate-100">
                   <span className="text-sm sm:text-base">Can I use this Morse code translator on mobile devices?</span>
-                  <span className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-400">
+                  <span aria-hidden="true" className="chevron-icon flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-transform group-open:rotate-180 dark:border-slate-700 dark:text-slate-300">
                     <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </span>
                 </summary>
-                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-400">
+                <div className="mt-3.5 border-t border-slate-200/70 pt-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:border-slate-700/70 dark:text-slate-300">
                   Yes. The interface is fully responsive, featuring touch targets that meet accessibility standards (minimum 44x44 pixels) for smooth operation on smartphones and tablets.
                 </div>
               </details>

@@ -7,16 +7,16 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'Printable Morse Code Cheat Sheet & PDF Chart (Alphabet, Numbers, Symbols)',
+  title: 'Printable Morse Code Cheat Sheet',
   description:
-    'Free printable Morse code cheat sheet. High-contrast ink-friendly reference table with letters A–Z, numbers 0–9, punctuation, and timing rules. Print or save as PDF.',
+    'Free printable Morse code cheat sheet. High-contrast reference table with letters A–Z, numbers 0–9, and punctuation. Print or save as a PDF chart.',
   alternates: {
     canonical: '/morse-code-sheet',
   },
   openGraph: {
-    title: 'Printable Morse Code Cheat Sheet & PDF Chart (Alphabet, Numbers, Symbols)',
+    title: 'Printable Morse Code Cheat Sheet',
     description:
-      'Free printable Morse code cheat sheet. High-contrast ink-friendly reference table with letters A–Z, numbers 0–9, punctuation, and timing rules. Print or save as PDF.',
+      'Free printable Morse code cheat sheet. High-contrast reference table with letters A–Z, numbers 0–9, and punctuation. Print or save as a PDF chart.',
     url: getAbsoluteUrl('/morse-code-sheet'),
     siteName: 'Morse Code Translator',
     type: 'article',

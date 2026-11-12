@@ -7,16 +7,16 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'Morse Code Numbers 0–9: Audio, Sliding Window Rule & Cut Numbers',
+  title: 'Morse Code Numbers 0–9 & Audio',
   description:
-    'Master Morse code digits 0 to 9. Listen to audio tones, understand the 5-element sliding window pattern, and learn amateur radio cut numbers (5NN, 1NN).',
+    'Learn Morse code digits 0–9 with audio tones, the 5-element sliding window pattern, and ham radio cut numbers (5NN, 1NN). Free interactive chart.',
   alternates: {
     canonical: '/morse-code-numbers',
   },
   openGraph: {
-    title: 'Morse Code Numbers 0–9: Audio, Sliding Window Rule & Cut Numbers',
+    title: 'Morse Code Numbers 0–9 & Audio',
     description:
-      'Master Morse code digits 0 to 9. Listen to audio tones, understand the 5-element sliding window pattern, and learn amateur radio cut numbers (5NN, 1NN).',
+      'Learn Morse code digits 0–9 with audio tones, the 5-element sliding window pattern, and ham radio cut numbers (5NN, 1NN). Free interactive chart.',
     url: getAbsoluteUrl('/morse-code-numbers'),
     siteName: 'Morse Code Translator',
     type: 'article',

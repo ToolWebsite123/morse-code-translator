@@ -6,16 +6,16 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'History of Morse Code: Telegraphy Timeline (1837 to Present)',
+  title: 'History of Morse Code & Timeline',
   description:
-    'Discover the history of Morse code and telegraphy. Explore the 1837–2004 timeline, Samuel Morse and Alfred Vail, transatlantic cables, and ITU standardization.',
+    'Discover the history of Morse code and telegraphy. Explore the 1837–2004 timeline, Samuel Morse, transatlantic cables, and modern ITU standardization.',
   alternates: {
     canonical: '/history-of-morse-code',
   },
   openGraph: {
-    title: 'History of Morse Code: Telegraphy Timeline (1837 to Present)',
+    title: 'History of Morse Code & Timeline',
     description:
-      'Discover the history of Morse code and telegraphy. Explore the 1837–2004 timeline, Samuel Morse and Alfred Vail, transatlantic cables, and ITU standardization.',
+      'Discover the history of Morse code and telegraphy. Explore the 1837–2004 timeline, Samuel Morse, transatlantic cables, and modern ITU standardization.',
     url: getAbsoluteUrl('/history-of-morse-code'),
     siteName: 'Morse Code Translator',
     type: 'article',

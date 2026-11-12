@@ -29,7 +29,7 @@ export function Header() {
             <span className="block whitespace-nowrap text-sm min-[360px]:text-[15px] font-bold tracking-tight text-slate-900 dark:text-white">
               Morse Code Translator
             </span>
-            <span className="hidden text-[11px] font-medium text-slate-500 sm:block dark:text-slate-400">
+            <span className="hidden text-[11px] font-medium text-slate-600 sm:block dark:text-slate-300">
               International Standard &bull; Free &amp; Private
             </span>
           </span>

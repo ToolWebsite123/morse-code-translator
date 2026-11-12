@@ -41,7 +41,9 @@ export function PracticeClient() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setStreak(getPracticeStreak());
+    queueMicrotask(() => {
+      setStreak(getPracticeStreak());
+    });
   }, []);
 
   const resetSessionWith = (

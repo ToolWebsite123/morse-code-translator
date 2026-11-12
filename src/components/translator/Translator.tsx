@@ -146,7 +146,7 @@ export function Translator() {
         {/* Top Command Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/90 bg-slate-50/90 px-4 py-3 sm:px-6 dark:border-slate-800 dark:bg-slate-950/80">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="hidden text-xs font-bold uppercase tracking-wider text-slate-500 sm:inline-block dark:text-slate-400">
+            <span className="hidden text-xs font-bold uppercase tracking-wider text-slate-600 sm:inline-block dark:text-slate-300">
               Direction:
             </span>
             <div
@@ -340,7 +340,7 @@ export function Translator() {
                   </>
                 )}
               </div>
-              <span className="hidden text-[11px] text-slate-500 sm:inline dark:text-slate-400">
+              <span className="hidden text-[11px] text-slate-600 sm:inline dark:text-slate-300">
                 <kbd className="rounded border border-slate-300 bg-white px-1.5 py-0.5 font-mono text-[10px] font-semibold dark:border-slate-700 dark:bg-slate-800">
                   Esc
                 </kbd>{' '}
@@ -453,7 +453,7 @@ export function Translator() {
               {result.output ? (
                 result.output
               ) : (
-                <span className="text-slate-400 select-none dark:text-slate-500">
+                <span className="text-slate-600 select-none dark:text-slate-400">
                   Translation will appear here in real-time...
                 </span>
               )}
@@ -472,7 +472,7 @@ export function Translator() {
             )}
 
             {/* Live Morse Statistics / Telemetry Strip: Mirroring Left Footer Geometry */}
-            <div className="mt-3 flex min-h-[32px] flex-wrap items-center justify-between gap-2 border-t border-slate-200/80 pt-2.5 text-xs text-slate-600 dark:border-slate-800 dark:text-slate-400">
+            <div className="mt-3 flex min-h-[32px] flex-wrap items-center justify-between gap-2 border-t border-slate-200/80 pt-2.5 text-xs text-slate-600 dark:border-slate-800 dark:text-slate-300">
               <div className="flex flex-wrap items-center gap-3 font-mono text-[11px]">
                 <span className="inline-flex items-center gap-1 font-semibold text-slate-700 dark:text-slate-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-teal-600 dark:bg-teal-400" />
@@ -482,7 +482,7 @@ export function Translator() {
                   <span className="h-1.5 w-3 rounded-full bg-teal-600 dark:bg-teal-400" />
                   {dashCount} dashes
                 </span>
-                <span className="text-slate-500">
+                <span className="text-slate-600 dark:text-slate-300">
                   {wordCount} {wordCount === 1 ? 'word' : 'words'}
                 </span>
                 {input.trim().length > 0 && (
@@ -491,7 +491,7 @@ export function Translator() {
                   </span>
                 )}
               </div>
-              <span className="font-semibold text-slate-500 dark:text-slate-400">Zero Analytics / Private</span>
+              <span className="font-semibold text-slate-600 dark:text-slate-300">Zero Analytics / Private</span>
             </div>
           </div>
         </div>

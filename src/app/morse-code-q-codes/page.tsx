@@ -6,16 +6,16 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'Ham Radio CW Q-Codes & Prosigns Guide (QTH, QRM, QSL, 73, 88)',
+  title: 'Ham Radio CW Q-Codes & Prosigns',
   description:
-    'Complete guide to amateur radio CW Q-codes and telegraphy prosigns. Learn QTH, QRM, QSL, 73, 88, and explore a real-world two-way QSO radio contact script.',
+    'Complete guide to amateur radio CW Q-codes and prosigns. Learn QTH, QRM, QSL, 73, and 88, with real-world two-way QSO scripts and radio practices.',
   alternates: {
     canonical: '/morse-code-q-codes',
   },
   openGraph: {
-    title: 'Ham Radio CW Q-Codes & Prosigns Guide (QTH, QRM, QSL, 73, 88)',
+    title: 'Ham Radio CW Q-Codes & Prosigns',
     description:
-      'Complete guide to amateur radio CW Q-codes and telegraphy prosigns. Learn QTH, QRM, QSL, 73, 88, and explore a real-world two-way QSO radio contact script.',
+      'Complete guide to amateur radio CW Q-codes and prosigns. Learn QTH, QRM, QSL, 73, and 88, with real-world two-way QSO scripts and radio practices.',
     url: getAbsoluteUrl('/morse-code-q-codes'),
     siteName: 'Morse Code Translator',
     type: 'article',

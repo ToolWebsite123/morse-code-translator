@@ -14,7 +14,7 @@ export function OpticalBeacon({
   label = 'Optical SOS Flasher & Strobe Beacon',
   showFullscreenOption = true,
 }: OpticalBeaconProps) {
-  const [morseCode, setMorseCode] = useState(initialMorse);
+  const morseCode = initialMorse;
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFlashing, setIsFlashing] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -42,7 +42,9 @@ export function OpticalBeacon({
     if (typeof window !== 'undefined' && window.matchMedia) {
       const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       if (mediaQuery.matches) {
-        setReducedMotion(true);
+        queueMicrotask(() => {
+          setReducedMotion(true);
+        });
       }
     }
   }, []);
