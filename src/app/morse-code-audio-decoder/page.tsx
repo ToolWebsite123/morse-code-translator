@@ -52,7 +52,7 @@ const AUDIO_DECODER_FAQS: readonly AudioFaqItem[] = [
   {
     question: 'Can I decode audio directly from my computer or phone microphone?',
     answer:
-      "Yes. Our platform includes an optional Live Microphone Decoder tab that listens to ambient room audio through your device's microphone, using real-time bandpass filtering to decode live Morse beeps as they play.",
+      'Currently, this tool is designed exclusively for pre-recorded audio file analysis (.wav, .mp3, .ogg, .webm). Live microphone input is not supported on this page; please upload or drag and drop an audio file for instant browser-local transcription.',
   },
   {
     question: 'How does this web decoder compare to specialized amateur radio software?',
@@ -109,7 +109,7 @@ interface ComparisonRow {
 const COMPARISON_ROWS: readonly ComparisonRow[] = [
   {
     dimension: 'Primary Input Mode',
-    audioDecoder: 'Acoustic sound files (.wav, .mp3, .ogg) or microphone stream',
+    audioDecoder: 'Acoustic sound files (.wav, .mp3, .ogg, .webm)',
     textTranslator: 'Typed English prose or dot-dash Morse code strings',
   },
   {

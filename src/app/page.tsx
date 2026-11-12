@@ -10,9 +10,6 @@ export const metadata: Metadata = {
   title: 'Morse Code Translator & Decoder — Audio Tone Player',
   description:
     'Translate text to Morse code and decode Morse code to text. Play audio tones with custom speed (WPM) & pitch, flash visual signals, and learn online.',
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: 'Morse Code Translator & Decoder — Audio Tone Player',
     description:
@@ -96,6 +93,7 @@ const homeSchemas = [
 export default function HomePage() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-clip bg-slate-50 dark:bg-[#0B1220]">
+      <link rel="canonical" href={getAbsoluteUrl('/')} />
       <JsonLd data={homeSchemas} />
       <Header />
 

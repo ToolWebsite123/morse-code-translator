@@ -673,7 +673,7 @@ export default function QuizPage() {
         {/* =========================================================================
             SECTION 7: COMPLETE MORSE CODE LEARNING ECOSYSTEM
             ========================================================================= */}
-        <section id="ecosystem" aria-label="Explore the Complete Morse Code Learning Ecosystem" className="mb-8 sm:mb-12 scroll-mt-20">
+        <section id="ecosystem" aria-label="Reinforce Your Quiz Results Across the Platform" className="mb-8 sm:mb-12 scroll-mt-20">
           <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
@@ -682,7 +682,7 @@ export default function QuizPage() {
                 </svg>
               </div>
               <h2 className="text-lg font-bold text-slate-900 sm:text-xl md:text-2xl lg:text-3xl dark:text-slate-100">
-                Explore the Complete Morse Code Learning Ecosystem
+                Reinforce Your Quiz Results Across the Platform
               </h2>
             </div>
             <p className="mb-6 text-sm leading-relaxed text-slate-700 sm:text-base md:text-lg dark:text-slate-300">
