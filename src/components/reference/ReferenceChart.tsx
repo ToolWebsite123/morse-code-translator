@@ -187,7 +187,7 @@ export function ReferenceChart() {
           </div>
 
           {/* Category Tabs */}
-          <div className="inline-flex rounded-xl border border-slate-200/90 bg-slate-100/80 p-1 dark:border-slate-800 dark:bg-slate-950" role="tablist" aria-label="Character categories">
+          <div className="flex max-w-full overflow-x-auto rounded-xl border border-slate-200/90 bg-slate-100/80 p-1 dark:border-slate-800 dark:bg-slate-950" role="tablist" aria-label="Character categories">
             {(
               [
                 { key: 'all', label: 'All (54)' },
@@ -202,7 +202,7 @@ export function ReferenceChart() {
                 role="tab"
                 aria-selected={category === cat.key}
                 onClick={() => setCategory(cat.key)}
-                className={`touch-target rounded-lg px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
+                className={`touch-target shrink-0 whitespace-nowrap rounded-lg px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
                   category === cat.key
                     ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-500 dark:text-slate-950'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-800/60'
@@ -404,30 +404,30 @@ export function ReferenceChart() {
                 </div>
 
                 {/* Mobile Touch Action Row */}
-                <div className="mt-3 flex items-center justify-between gap-2 border-t border-slate-100 pt-2.5 dark:border-slate-800/80">
+                <div className="mt-3 flex items-center justify-between gap-1.5 sm:gap-2 border-t border-slate-100 pt-2.5 dark:border-slate-800/80">
                   <button
                     type="button"
                     onClick={() => handleTogglePlay(item)}
-                    className={`btn-tactile touch-target flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-bold transition-all ${
+                    className={`btn-tactile touch-target flex-1 inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded-xl border px-2 sm:px-3 py-2 text-xs font-bold transition-all ${
                       playingChar === item.character
                         ? 'border-amber-400 bg-amber-50 text-amber-800 animate-pulse dark:border-amber-500 dark:bg-amber-950/70 dark:text-amber-300'
                         : 'border-slate-300 bg-white text-slate-700 hover:border-teal-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200'
                     }`}
                   >
-                    {playingChar === item.character ? 'Stop' : 'Play Tone'}
+                    {playingChar === item.character ? 'Stop' : 'Play'}
                   </button>
 
                   <button
                     type="button"
                     onClick={() => handleCopyMorse(item)}
-                    className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                    className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-2.5 sm:px-3 py-2 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                   >
                     {copiedChar === item.character ? 'Copied' : 'Copy'}
                   </button>
 
                   <Link
                     href={`/?text=${encodeURIComponent(item.character)}`}
-                    className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:text-teal-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                    className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-2.5 sm:px-3 py-2 text-xs font-semibold text-slate-700 hover:text-teal-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
                   >
                     Translate &rarr;
                   </Link>
@@ -443,14 +443,38 @@ export function ReferenceChart() {
       </div>
 
       {/* Standards & Conventions Note */}
-      <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5 text-xs text-slate-600 leading-relaxed dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
-        <h3 className="font-bold text-slate-900 text-sm dark:text-slate-100">International Morse Standard Note</h3>
+      <div className="mt-6 rounded-xl border border-slate-200 bg-white p-4 sm:p-5 text-xs text-slate-600 leading-relaxed dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+        <h2 className="font-bold text-slate-900 text-sm dark:text-slate-100">International Morse Standard Note</h2>
         <p className="mt-1">
           This chart defines the official International Morse Code alphabet according to Recommendation ITU-R M.1677-1.
           It covers 26 uppercase Latin letters, 10 Arabic digits, and 18 standard punctuation symbols.
           In Morse transmission, the forward slash (<code className="font-bold text-slate-900 dark:text-slate-100">/</code>) is used to indicate word spaces,
           while a literal slash is transmitted as <code className="font-bold text-slate-900 dark:text-slate-100">-..-.</code>.
         </p>
+      </div>
+
+      {/* Practice Call to Action */}
+      <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-2xl border border-teal-200/80 bg-teal-50/70 p-4 text-xs dark:border-teal-900/60 dark:bg-teal-950/40">
+        <div>
+          <strong className="font-bold text-teal-950 dark:text-teal-200">Ready to test your memory?</strong>
+          <p className="mt-0.5 text-teal-800 dark:text-teal-300">
+            Practice recognizing these 54 characters with interactive audio drills and speed tests.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+          <Link
+            href="/morse-code-practice"
+            className="btn-tactile touch-target inline-flex items-center justify-center gap-1.5 rounded-xl bg-teal-700 px-4 py-2 font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500"
+          >
+            Start Practice Drills &rarr;
+          </Link>
+          <Link
+            href="/learn-morse-code"
+            className="btn-tactile touch-target inline-flex items-center justify-center gap-1.5 rounded-xl border border-teal-300 bg-white px-4 py-2 font-bold text-teal-900 hover:bg-teal-50 dark:border-teal-800 dark:bg-slate-900 dark:text-teal-200 dark:hover:bg-slate-800"
+          >
+            10-Lesson Course
+          </Link>
+        </div>
       </div>
     </div>
   );

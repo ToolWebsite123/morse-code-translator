@@ -157,7 +157,7 @@ export default function HomePage() {
             SECTION 1: HOW TO USE THE MORSE CODE TRANSLATOR (Matching Image Structure)
             ========================================================================= */}
         <section aria-label="How to use the Morse code translator" className="mt-12 sm:mt-16 scroll-mt-20">
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -196,7 +196,7 @@ export default function HomePage() {
             SECTION 2: WHO USES MORSE CODE & THIS TOOL (Exact Image Mirror)
             ========================================================================= */}
         <section aria-label="Who uses Morse code and this tool" className="mt-8 sm:mt-12 scroll-mt-20">
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -235,7 +235,7 @@ export default function HomePage() {
             SECTION 3: CONVERSION RULES & SYNTAX (Matching Image Structure)
             ========================================================================= */}
         <section aria-label="Bidirectional Morse Code Conversion Rules" className="mt-8 sm:mt-12 scroll-mt-20">
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -274,7 +274,7 @@ export default function HomePage() {
             SECTION 4: AUDIO PLAYBACK & TIMING STANDARDS (Matching Image Structure)
             ========================================================================= */}
         <section aria-label="Audio Playback and ITU-R Timing Standards" className="mt-8 sm:mt-12 scroll-mt-20">
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -406,7 +406,7 @@ export default function HomePage() {
             SECTION 5: ALPHABET & SIGNALS QUICK DIRECTORY (Matching Image Structure)
             ========================================================================= */}
         <section aria-label="International Morse Code Alphabet and SOS Signal" className="mt-8 sm:mt-12 scroll-mt-20">
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -562,7 +562,7 @@ export default function HomePage() {
                   ••• ——— •••
                 </span>
                 <Link
-                  href="/reference"
+                  href="/morse-code-alphabet"
                   className="rounded-lg bg-teal-700 px-3 py-1.5 font-sans text-xs font-bold text-white hover:bg-teal-800 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
                 >
                   Full Chart &rarr;
@@ -576,7 +576,7 @@ export default function HomePage() {
             SECTION 6: EXPLORE MORSE CODE TOOLS (Matching Image Structure)
             ========================================================================= */}
         <section aria-label="Morse Code Learning and Reference Tools" className="mt-8 sm:mt-12 scroll-mt-20">
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -592,7 +592,7 @@ export default function HomePage() {
             </p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Link
-                href="/reference"
+                href="/morse-code-alphabet"
                 className="group flex flex-col justify-between rounded-xl border border-slate-200/80 bg-slate-50 p-5 transition-all hover:border-teal-400 hover:bg-white hover:shadow-sm dark:border-slate-800 dark:bg-slate-800/60 dark:hover:border-teal-500 dark:hover:bg-slate-800"
               >
                 <div>
@@ -607,7 +607,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/learn"
+                href="/learn-morse-code"
                 className="group flex flex-col justify-between rounded-xl border border-slate-200/80 bg-slate-50 p-5 transition-all hover:border-teal-400 hover:bg-white hover:shadow-sm dark:border-slate-800 dark:bg-slate-800/60 dark:hover:border-teal-500 dark:hover:bg-slate-800"
               >
                 <div>
@@ -622,7 +622,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/practice"
+                href="/morse-code-practice"
                 className="group flex flex-col justify-between rounded-xl border border-slate-200/80 bg-slate-50 p-5 transition-all hover:border-teal-400 hover:bg-white hover:shadow-sm dark:border-slate-800 dark:bg-slate-800/60 dark:hover:border-teal-500 dark:hover:bg-slate-800"
               >
                 <div>
@@ -637,7 +637,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/audio-decoder"
+                href="/morse-code-audio-decoder"
                 className="group flex flex-col justify-between rounded-xl border border-slate-200/80 bg-slate-50 p-5 transition-all hover:border-teal-400 hover:bg-white hover:shadow-sm dark:border-slate-800 dark:bg-slate-800/60 dark:hover:border-teal-500 dark:hover:bg-slate-800"
               >
                 <div>
@@ -658,7 +658,7 @@ export default function HomePage() {
             SECTION 7: FREQUENTLY ASKED QUESTIONS (Matching Image Structure)
             ========================================================================= */}
         <section aria-label="Frequently Asked Questions" className="mt-8 sm:mt-12 scroll-mt-20">
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:rounded-3xl sm:p-8 md:p-10 dark:border-slate-800 dark:bg-slate-900/95">
             <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs sm:h-12 sm:w-12 dark:bg-teal-600 dark:text-slate-950">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -765,19 +765,19 @@ export default function HomePage() {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
-                href="/learn"
+                href="/learn-morse-code"
                 className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-teal-800 sm:text-sm dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
               >
                 Start 10-Lesson Course
               </Link>
               <Link
-                href="/reference"
+                href="/morse-code-alphabet"
                 className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 sm:text-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               >
                 View Alphabet Chart
               </Link>
               <Link
-                href="/practice"
+                href="/morse-code-practice"
                 className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 sm:text-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               >
                 Try Practice Drills

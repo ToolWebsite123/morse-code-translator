@@ -26,8 +26,8 @@ export function Header() {
             </span>
           </span>
           <span className="leading-tight">
-            <span className="block whitespace-nowrap text-[15px] font-bold tracking-tight text-slate-900 dark:text-white">
-              Morse Code Platform
+            <span className="block whitespace-nowrap text-sm min-[360px]:text-[15px] font-bold tracking-tight text-slate-900 dark:text-white">
+              Morse Code Translator
             </span>
             <span className="hidden text-[11px] font-medium text-slate-500 sm:block dark:text-slate-400">
               International Standard &bull; Free &amp; Private

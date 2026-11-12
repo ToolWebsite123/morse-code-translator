@@ -8,18 +8,23 @@ describe('Phase 6: Technical & On-Page SEO (PRD Section 17 & FR-020, FR-021)', (
   it('generates a valid XML sitemap containing all published canonical routes and no redirects', () => {
     const sitemapEntries = sitemap();
 
-    // 11 primary routes + 10 lessons = 21 canonical routes
-    expect(sitemapEntries).toHaveLength(21);
+    // 16 primary & expansion routes + 10 lessons = 26 canonical routes
+    expect(sitemapEntries).toHaveLength(26);
 
     const urls = sitemapEntries.map((e) => e.url);
 
     // Core routes present
     expect(urls).toContain(getAbsoluteUrl('/'));
-    expect(urls).toContain(getAbsoluteUrl('/reference'));
-    expect(urls).toContain(getAbsoluteUrl('/audio-decoder'));
-    expect(urls).toContain(getAbsoluteUrl('/learn'));
-    expect(urls).toContain(getAbsoluteUrl('/practice'));
-    expect(urls).toContain(getAbsoluteUrl('/quiz'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-alphabet'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-audio-decoder'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-sos'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-sheet'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-numbers'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-q-codes'));
+    expect(urls).toContain(getAbsoluteUrl('/history-of-morse-code'));
+    expect(urls).toContain(getAbsoluteUrl('/learn-morse-code'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-practice'));
+    expect(urls).toContain(getAbsoluteUrl('/morse-code-quiz'));
     expect(urls).toContain(getAbsoluteUrl('/about'));
     expect(urls).toContain(getAbsoluteUrl('/privacy'));
     expect(urls).toContain(getAbsoluteUrl('/contact'));
@@ -60,8 +65,8 @@ describe('Phase 6: Technical & On-Page SEO (PRD Section 17 & FR-020, FR-021)', (
 
   it('constructs absolute canonical URLs cleanly without double slashes', () => {
     expect(getAbsoluteUrl('/')).toBe(`${SITE_CONFIG.url}/`);
-    expect(getAbsoluteUrl('/reference')).toBe(`${SITE_CONFIG.url}/reference`);
-    expect(getAbsoluteUrl('practice')).toBe(`${SITE_CONFIG.url}/practice`);
+    expect(getAbsoluteUrl('/morse-code-alphabet')).toBe(`${SITE_CONFIG.url}/morse-code-alphabet`);
+    expect(getAbsoluteUrl('morse-code-practice')).toBe(`${SITE_CONFIG.url}/morse-code-practice`);
   });
 
   it('validates structured data schema properties according to Google guidelines', () => {
@@ -91,47 +96,47 @@ describe('Phase 6: Technical & On-Page SEO (PRD Section 17 & FR-020, FR-021)', (
     expect(SITE_CONFIG.defaultDescription.length).toBeLessThan(170); // Google snippet threshold
   });
 
-  it('validates /reference metadata, canonical tag, and OpenGraph specification', async () => {
-    const { metadata } = await import('@/app/reference/page');
+  it('validates /morse-code-alphabet metadata, canonical tag, and OpenGraph specification', async () => {
+    const { metadata } = await import('@/app/morse-code-alphabet/page');
     expect(metadata.title).toBe('Morse Code Alphabet Chart & Letters');
     expect(typeof metadata.title).toBe('string');
     expect((metadata.title as string).length).toBeLessThanOrEqual(60);
     expect(metadata.description).toContain('Complete International Morse Code alphabet chart');
-    expect(metadata.alternates?.canonical).toBe('/reference');
+    expect(metadata.alternates?.canonical).toBe('/morse-code-alphabet');
     expect((metadata.openGraph as { type?: string })?.type).toBe('article');
-    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/reference'));
+    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/morse-code-alphabet'));
   });
 
-  it('validates /learn metadata, canonical tag, and OpenGraph specification', async () => {
-    const { metadata } = await import('@/app/learn/page');
+  it('validates /learn-morse-code metadata, canonical tag, and OpenGraph specification', async () => {
+    const { metadata } = await import('@/app/learn-morse-code/page');
     expect(metadata.title).toBe('Learn Morse Code: 10-Lesson Course');
     expect((metadata.title as string).length).toBeLessThanOrEqual(60);
     expect(metadata.description).toContain('Learn International Morse Code with our free, interactive 10-lesson course');
-    expect(metadata.alternates?.canonical).toBe('/learn');
+    expect(metadata.alternates?.canonical).toBe('/learn-morse-code');
     expect(metadata.openGraph?.title).toBe('Learn Morse Code: 10-Lesson Course');
-    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/learn'));
+    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/learn-morse-code'));
   });
 
-  it('validates /practice metadata, canonical tag, and OpenGraph specification', async () => {
-    const { metadata } = await import('@/app/practice/page');
+  it('validates /morse-code-practice metadata, canonical tag, and OpenGraph specification', async () => {
+    const { metadata } = await import('@/app/morse-code-practice/page');
     expect(metadata.title).toBe('Morse Code Practice & Speed Trainer');
     expect(typeof metadata.title).toBe('string');
     expect((metadata.title as string).length).toBeLessThanOrEqual(60);
     expect(metadata.description).toContain('Practice Morse code with free interactive speed drills');
-    expect(metadata.alternates?.canonical).toBe('/practice');
+    expect(metadata.alternates?.canonical).toBe('/morse-code-practice');
     expect(metadata.openGraph?.title).toBe('Morse Code Practice & Speed Trainer');
-    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/practice'));
+    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/morse-code-practice'));
   });
 
-  it('validates /quiz metadata, canonical tag, and OpenGraph specification', async () => {
-    const { metadata } = await import('@/app/quiz/page');
+  it('validates /morse-code-quiz metadata, canonical tag, and OpenGraph specification', async () => {
+    const { metadata } = await import('@/app/morse-code-quiz/page');
     expect(metadata.title).toBe('Morse Code Quiz & Knowledge Test');
     expect(typeof metadata.title).toBe('string');
     expect((metadata.title as string).length).toBeLessThanOrEqual(60);
     expect(metadata.description).toContain('Test your Morse code knowledge with our free 10-question standardized quiz');
-    expect(metadata.alternates?.canonical).toBe('/quiz');
+    expect(metadata.alternates?.canonical).toBe('/morse-code-quiz');
     expect(metadata.openGraph?.title).toBe('Morse Code Quiz & Knowledge Test');
-    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/quiz'));
+    expect(metadata.openGraph?.url).toBe(getAbsoluteUrl('/morse-code-quiz'));
   });
 
   it('validates 54-character reference mappings and categories match canonical source of truth', async () => {

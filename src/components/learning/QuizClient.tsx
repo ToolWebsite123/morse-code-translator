@@ -80,7 +80,7 @@ export function QuizClient() {
   // INTRO PHASE
   if (phase === 'intro') {
     return (
-      <div className="w-full rounded-xl border border-slate-200 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
+      <div className="w-full rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="max-w-xl">
             <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 dark:bg-teal-900/50 dark:text-teal-300">
@@ -104,7 +104,7 @@ export function QuizClient() {
               Start 10-Question Quiz &rarr;
             </button>
             <Link
-              href="/practice"
+              href="/morse-code-practice"
               className="touch-target text-center text-xs font-semibold text-slate-600 hover:text-teal-700 dark:text-slate-400 dark:hover:text-teal-400"
             >
               Want to practice first? Go to Drills
@@ -151,7 +151,7 @@ export function QuizClient() {
     const currentAnswer = userAnswers[currentQuestion.id] || '';
 
     return (
-      <div className="w-full rounded-xl border border-slate-200 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
+      <div className="w-full rounded-xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
         {/* Progress & Header */}
         <div className="mb-6 flex items-center justify-between text-xs">
           <span className="font-mono font-bold text-teal-800 dark:text-teal-400">
@@ -226,21 +226,21 @@ export function QuizClient() {
         )}
 
         {/* Navigation Buttons */}
-        <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-5 dark:border-slate-800">
+        <div className="mt-8 flex items-center justify-between gap-3 border-t border-slate-100 pt-5 dark:border-slate-800">
           <button
             type="button"
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className="touch-target inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+            className="touch-target inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-3 sm:px-4 py-2 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
           >
-            &larr; Previous
+            &larr; Prev
           </button>
 
           {currentIndex < questions.length - 1 ? (
             <button
               type="button"
               onClick={handleNext}
-              className="touch-target inline-flex items-center rounded-lg bg-teal-700 px-5 py-2 text-xs font-semibold text-white shadow-xs transition-colors hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
+              className="touch-target inline-flex items-center justify-center rounded-lg bg-teal-700 px-4 sm:px-5 py-2 text-xs font-semibold text-white shadow-xs transition-colors hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
             >
               Next &rarr;
             </button>
@@ -248,9 +248,9 @@ export function QuizClient() {
             <button
               type="button"
               onClick={handleSubmitQuiz}
-              className="touch-target inline-flex items-center rounded-lg bg-emerald-700 px-6 py-2 text-xs font-bold text-white shadow-xs transition-colors hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 sm:text-sm"
+              className="touch-target inline-flex items-center justify-center rounded-lg bg-emerald-700 px-4 sm:px-6 py-2 text-xs font-bold text-white shadow-xs transition-colors hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 sm:text-sm"
             >
-              Submit Quiz &amp; View Results
+              Submit &amp; View
             </button>
           )}
         </div>
@@ -263,7 +263,7 @@ export function QuizClient() {
     return (
       <div className="w-full">
         {/* Score Banner */}
-        <div className="mb-6 rounded-xl border border-teal-200 bg-white p-6 shadow-xs text-center dark:border-slate-800 dark:bg-slate-900">
+        <div className="mb-6 rounded-xl border border-teal-200 bg-white p-4 sm:p-6 shadow-xs text-center dark:border-slate-800 dark:bg-slate-900">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             Quiz Completed
           </span>
@@ -278,23 +278,23 @@ export function QuizClient() {
             Review the detailed question explanations below to reinforce any tricky concepts.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={handleStartQuiz}
-              className="touch-target inline-flex items-center rounded-lg bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
+              className="touch-target w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
             >
               Retake Another Quiz
             </button>
             <Link
-              href="/practice"
-              className="touch-target inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
+              href="/morse-code-practice"
+              className="touch-target w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
             >
               Practice Drills &rarr;
             </Link>
             <Link
-              href="/learn"
-              className="touch-target inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
+              href="/learn-morse-code"
+              className="touch-target w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
             >
               Back to Lessons
             </Link>
@@ -310,7 +310,7 @@ export function QuizClient() {
           {results.reviewList.map((item, idx) => (
             <div
               key={idx}
-              className={`rounded-xl border p-5 shadow-xs ${
+              className={`rounded-xl border p-4 sm:p-5 shadow-xs ${
                 item.isCorrect
                   ? 'border-emerald-200 bg-white dark:border-emerald-900/60 dark:bg-slate-900'
                   : 'border-rose-200 bg-white dark:border-rose-900/60 dark:bg-slate-900'

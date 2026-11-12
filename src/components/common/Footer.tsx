@@ -3,10 +3,10 @@ import Link from 'next/link';
 export function Footer() {
   return (
     <footer className="mt-12 sm:mt-16 border-t border-slate-200/90 bg-white dark:border-slate-800/90 dark:bg-slate-950">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 md:gap-10">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 md:gap-8">
           {/* Column 1: Brand & Purpose */}
-          <div className="lg:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link
               href="/"
               className="inline-flex items-center gap-2.5 text-lg font-bold text-teal-800 transition-colors hover:text-teal-900 dark:text-teal-400 dark:hover:text-teal-300"
@@ -14,7 +14,7 @@ export function Footer() {
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-800 font-mono text-xs font-bold text-white shadow-2xs dark:bg-teal-500 dark:text-slate-950">
                 .-.
               </span>
-              <span>Morse Code Platform</span>
+              <span>Morse Code Translator</span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
               Free International Morse Code translator, real-time Web Audio synthesizer, audio file decoder, and comprehensive CW telegraphy learning curriculum.
@@ -37,42 +37,71 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/audio-decoder" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                <Link href="/morse-code-audio-decoder" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
                   Audio File Decoder (.wav/.mp3)
                 </Link>
               </li>
               <li>
-                <Link href="/reference" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                <Link href="/morse-code-alphabet" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
                   54-Character Alphabet Chart
                 </Link>
               </li>
               <li>
-                <Link href="/#timing" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
-                  PARIS Standard Timing
+                <Link href="/morse-code-sheet" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                  Printable Cheat Sheet (PDF)
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Learning & Practice */}
+          {/* Column 3: Learn & Practice */}
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-400">
               Learn &amp; Practice
             </p>
             <ul className="space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
               <li>
-                <Link href="/learn" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                <Link href="/learn-morse-code" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
                   10-Lesson Curriculum
                 </Link>
               </li>
               <li>
-                <Link href="/practice" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                <Link href="/morse-code-practice" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
                   Interactive Practice Drills
                 </Link>
               </li>
               <li>
-                <Link href="/quiz" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                <Link href="/morse-code-quiz" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
                   Knowledge Evaluation Quiz
+                </Link>
+              </li>
+              <li>
+                <Link href="/morse-code-numbers" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                  Numbers 0–9 &amp; Cut Codes
+                </Link>
+              </li>
+              <li>
+                <Link href="/history-of-morse-code" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                  Telegraphy History (1837–2004)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Radio & Signals */}
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-400">
+              Radio &amp; Signals
+            </p>
+            <ul className="space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
+              <li>
+                <Link href="/morse-code-sos" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                  SOS Distress Signal (... --- ...)
+                </Link>
+              </li>
+              <li>
+                <Link href="/morse-code-q-codes" className="transition-colors hover:text-teal-800 dark:hover:text-teal-300">
+                  CW Q-Codes (QTH, QRM, QSL)
                 </Link>
               </li>
               <li>
@@ -83,7 +112,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: About, Legal & Contact */}
+          {/* Column 5: About, Legal & Contact */}
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-400">
               About &amp; Legal
@@ -126,7 +155,7 @@ export function Footer() {
         {/* Bottom Bar: Copyright & Standards */}
         <div className="mt-8 border-t border-slate-200/80 pt-6 text-center sm:flex sm:items-center sm:justify-between sm:text-left dark:border-slate-800/80">
           <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-            &copy; 2026 Morse Code Platform. Free educational resource.
+            &copy; 2026 morsecodetranslatores.com. Free educational resource.
           </p>
           <p className="mt-2 text-xs text-slate-500 sm:mt-0 dark:text-slate-400">
             Designed for students, amateur radio hobbyists, and educators worldwide.

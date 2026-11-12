@@ -84,7 +84,7 @@ export function LearningHubClient() {
               </p>
 
               {/* Progress Summary Readout */}
-              <div className="mt-4 flex flex-wrap items-baseline gap-2">
+              <div className="mt-4 flex flex-wrap items-center gap-3">
                 <span className="font-mono text-lg font-bold text-teal-800 dark:text-teal-300 sm:text-xl">
                   {completedCount === totalLessons
                     ? 'All 10 Lessons Mastered! 🏆'
@@ -92,6 +92,10 @@ export function LearningHubClient() {
                 </span>
                 <span className="text-xs text-slate-500 dark:text-slate-400">
                   ({totalLessons - completedCount} remaining)
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-bold text-amber-900 shadow-2xs dark:border-amber-900/60 dark:bg-amber-950/60 dark:text-amber-300">
+                  <span aria-hidden="true">🔥</span>
+                  <span>{progress.streak && progress.streak.current > 0 ? `${progress.streak.current}d Streak` : 'Daily Streak'}</span>
                 </span>
               </div>
 
@@ -114,11 +118,11 @@ export function LearningHubClient() {
             </div>
 
             {/* Quick Hub Action Controls */}
-            <div className="flex flex-wrap items-center gap-3 lg:flex-col lg:items-end">
-              <div className="flex flex-wrap items-center gap-2.5">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 lg:flex-col lg:items-end w-full lg:w-auto">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 w-full sm:w-auto">
                 <Link
-                  href="/practice"
-                  className="btn-tactile touch-target inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-2xs transition-colors hover:border-teal-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700 sm:text-sm"
+                  href="/morse-code-practice"
+                  className="btn-tactile touch-target inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-2xs transition-colors hover:border-teal-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700 sm:text-sm"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-teal-600 dark:text-teal-400" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
@@ -126,8 +130,8 @@ export function LearningHubClient() {
                   Practice Drills &rarr;
                 </Link>
                 <Link
-                  href="/quiz"
-                  className="btn-tactile touch-target inline-flex items-center gap-1.5 rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs transition-colors hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
+                  href="/morse-code-quiz"
+                  className="btn-tactile touch-target inline-flex items-center justify-center gap-1.5 rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs transition-colors hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
                 >
                   Take Quiz &rarr;
                 </Link>
@@ -137,7 +141,7 @@ export function LearningHubClient() {
                 <button
                   type="button"
                   onClick={handleResetProgress}
-                  className="btn-tactile touch-target text-xs font-semibold text-slate-500 transition-colors hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400"
+                  className="btn-tactile touch-target text-xs font-semibold text-slate-500 transition-colors hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 text-center sm:text-right"
                   title="Reset local learning progress"
                 >
                   Reset Progress
@@ -303,7 +307,7 @@ export function LearningHubClient() {
               <Link
                 key={lesson.slug}
                 href={`/learn/${lesson.slug}`}
-                className="studio-card group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white/95 p-5 shadow-xs backdrop-blur-xs transition-all hover:border-teal-500/60 dark:border-slate-800 dark:bg-slate-900/95 dark:hover:border-teal-400/50 sm:p-6"
+                className="studio-card group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white/95 p-4 shadow-xs backdrop-blur-xs transition-all hover:border-teal-500/60 dark:border-slate-800 dark:bg-slate-900/95 dark:hover:border-teal-400/50 sm:p-6"
               >
                 <div>
                   {/* Header Metadata Row */}

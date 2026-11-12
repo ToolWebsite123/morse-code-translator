@@ -11,7 +11,7 @@
  * 4. Zero network transmission
  */
 
-import type { LearningProgress, QuizResultRecord } from '@/types/learning';
+import type { LearningProgress, QuizResultRecord, PracticeStreak } from '@/types/learning';
 
 export const PROGRESS_STORAGE_KEY = 'morse_learning_progress_v1';
 export const CURRENT_SCHEMA_VERSION = 1;
@@ -24,6 +24,11 @@ export const INITIAL_LEARNING_PROGRESS: Readonly<LearningProgress> = {
     totalAttempts: 0,
     correctAttempts: 0,
     weakCharacters: {},
+  },
+  streak: {
+    current: 0,
+    longest: 0,
+    lastDate: '',
   },
   lastActiveDate: '',
 };
@@ -92,12 +97,74 @@ function sanitizeProgress(raw: unknown): LearningProgress {
         }
       : { totalAttempts: 0, correctAttempts: 0, weakCharacters: {} };
 
+  const streak: PracticeStreak =
+    obj.streak && typeof obj.streak === 'object'
+      ? {
+          current: typeof obj.streak.current === 'number' ? Math.max(0, obj.streak.current) : 0,
+          longest: typeof obj.streak.longest === 'number' ? Math.max(0, obj.streak.longest) : 0,
+          lastDate: typeof obj.streak.lastDate === 'string' ? obj.streak.lastDate : '',
+        }
+      : { current: 0, longest: 0, lastDate: '' };
+
   return {
     version: CURRENT_SCHEMA_VERSION,
     completedLessons,
     quizHistory,
     practiceStats,
+    streak,
     lastActiveDate: typeof obj.lastActiveDate === 'string' ? obj.lastActiveDate : '',
+  };
+}
+
+export function getTodayDateString(): string {
+  const d = new Date();
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+export function calculateUpdatedStreak(prevStreak?: PracticeStreak): PracticeStreak {
+  const today = getTodayDateString();
+  const current = prevStreak?.current || 0;
+  const longest = prevStreak?.longest || 0;
+  const lastDate = prevStreak?.lastDate || '';
+
+  if (!lastDate) {
+    return {
+      current: 1,
+      longest: Math.max(1, longest),
+      lastDate: today,
+    };
+  }
+
+  if (lastDate === today) {
+    return {
+      current,
+      longest,
+      lastDate: today,
+    };
+  }
+
+  // Calculate day difference
+  const prevTime = new Date(`${lastDate}T00:00:00`).getTime();
+  const currTime = new Date(`${today}T00:00:00`).getTime();
+  const diffDays = Math.round((currTime - prevTime) / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 1) {
+    const nextCurrent = current + 1;
+    return {
+      current: nextCurrent,
+      longest: Math.max(nextCurrent, longest),
+      lastDate: today,
+    };
+  }
+
+  // Missed one or more days -> reset to 1
+  return {
+    current: 1,
+    longest,
+    lastDate: today,
   };
 }
 
@@ -165,10 +232,19 @@ export function saveLearningProgress(progress: LearningProgress): boolean {
  */
 export function markLessonCompleted(slug: string): LearningProgress {
   const current = getLearningProgress();
+  const nextStreak = calculateUpdatedStreak(current.streak);
   if (!current.completedLessons.includes(slug)) {
     const updated: LearningProgress = {
       ...current,
       completedLessons: [...current.completedLessons, slug],
+      streak: nextStreak,
+    };
+    saveLearningProgress(updated);
+    return updated;
+  } else if (!current.streak?.lastDate || current.streak.lastDate !== getTodayDateString()) {
+    const updated: LearningProgress = {
+      ...current,
+      streak: nextStreak,
     };
     saveLearningProgress(updated);
     return updated;
@@ -195,6 +271,7 @@ export function recordQuizResult(score: number, total: number): LearningProgress
   const updated: LearningProgress = {
     ...current,
     quizHistory: updatedHistory,
+    streak: calculateUpdatedStreak(current.streak),
   };
   saveLearningProgress(updated);
   return updated;
@@ -227,9 +304,35 @@ export function recordPracticeAttempt(character: string, isCorrect: boolean): Le
         [charKey]: updatedCharStats,
       },
     },
+    streak: calculateUpdatedStreak(current.streak),
   };
   saveLearningProgress(updated);
   return updated;
+}
+
+/**
+ * Retrieves the current streak information, factoring in whether a day was missed
+ */
+export function getPracticeStreak(): PracticeStreak {
+  const progress = getLearningProgress();
+  const streak = progress.streak || { current: 0, longest: 0, lastDate: '' };
+  if (!streak.lastDate) return streak;
+
+  const today = getTodayDateString();
+  if (streak.lastDate === today) return streak;
+
+  const prevTime = new Date(`${streak.lastDate}T00:00:00`).getTime();
+  const currTime = new Date(`${today}T00:00:00`).getTime();
+  const diffDays = Math.round((currTime - prevTime) / (1000 * 60 * 60 * 24));
+
+  if (diffDays > 1) {
+    return {
+      current: 0,
+      longest: streak.longest,
+      lastDate: streak.lastDate,
+    };
+  }
+  return streak;
 }
 
 /**

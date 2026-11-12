@@ -39,13 +39,13 @@ export default function NotFound() {
             Go to Translator &rarr;
           </Link>
           <Link
-            href="/learn"
+            href="/learn-morse-code"
             className="touch-target inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
           >
             Learning Hub
           </Link>
           <Link
-            href="/reference"
+            href="/morse-code-alphabet"
             className="touch-target inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
           >
             Alphabet Chart

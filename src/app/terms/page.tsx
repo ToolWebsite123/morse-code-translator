@@ -10,16 +10,16 @@ const CONTACT_EMAIL = 'morecodetranslator@gmail.com';
 export const metadata: Metadata = {
   title: 'Terms of Use & Service Rules',
   description:
-    'Review the Terms of Use for Morse Code Platform. Understand permitted educational use, client-side execution, intellectual property, and service rules.',
+    'Review the Terms of Use for Morse Code Translator. Understand permitted educational use, client-side execution, intellectual property, and service rules.',
   alternates: {
     canonical: '/terms',
   },
   openGraph: {
     title: 'Terms of Use & Service Rules',
     description:
-      'Review the Terms of Use for Morse Code Platform. Understand permitted educational use, client-side execution, intellectual property, and service rules.',
+      'Review the Terms of Use for Morse Code Translator. Understand permitted educational use, client-side execution, intellectual property, and service rules.',
     url: getAbsoluteUrl('/terms'),
-    siteName: 'Morse Code Platform',
+    siteName: 'Morse Code Translator',
     type: 'website',
   },
 };
@@ -153,7 +153,7 @@ export default function TermsPage() {
               <li>Interactive Web Audio API tone synthesis and adjustable WPM speed playback.</li>
               <li>On-screen visual light signal beacon simulation.</li>
               <li>Uncompressed 16-bit PCM WAV audio file generation and export.</li>
-              <li>Browser-local audio file decoding (<Link href="/audio-decoder" className="text-teal-700 underline dark:text-teal-400">/audio-decoder</Link>).</li>
+              <li>Browser-local audio file decoding (<Link href="/morse-code-audio-decoder" className="text-teal-700 underline dark:text-teal-400">/morse-code-audio-decoder</Link>).</li>
               <li>Self-paced Morse code curriculum (10 lessons), interactive quizzes, and speed drills.</li>
             </ul>
 

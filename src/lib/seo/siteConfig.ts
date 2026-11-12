@@ -10,8 +10,8 @@ const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://morsecodetransla
 const normalizedSiteUrl = rawSiteUrl.replace(/\/+$/, '');
 
 export const SITE_CONFIG = {
-  name: 'Morse Code Platform',
-  shortName: 'MorseCode',
+  name: 'Morse Code Translator',
+  shortName: 'MorseTranslator',
   url: normalizedSiteUrl,
   domain: 'morsecodetranslatores.com',
   apexDomain: 'morsecodetranslatores.com',
@@ -19,11 +19,11 @@ export const SITE_CONFIG = {
   email: 'morecodetranslator@gmail.com',
   locale: 'en_US',
   defaultTitle: 'Morse Code Translator & Decoder — Audio Tone Player',
-  titleTemplate: '%s | Morse Code Platform',
+  titleTemplate: '%s | Morse Code Translator',
   defaultDescription:
     'Translate text to Morse code and decode Morse code to text. Play audio tones with custom speed (WPM) & pitch, flash visual signals, and learn online.',
   standard: 'Recommendation ITU-R M.1677-1',
-  author: 'Morse Code Platform Team',
+  author: 'Morse Code Translator Team',
 };
 
 /**

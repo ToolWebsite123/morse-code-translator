@@ -1,0 +1,30 @@
+# Cloudflare Pages Edge Security & Cache-Control Headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: microphone=(self), camera=(), geolocation=()
+  X-XSS-Protection: 1; mode=block
+
+# Immutable long-term caching for hashed Next.js static assets
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache-Control for visual media, icons, and manifests
+/icon.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/favicon.ico
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/og-image.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/site.webmanifest
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+

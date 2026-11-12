@@ -81,6 +81,12 @@ export interface QuizResultRecord {
   percentage: number;
 }
 
+export interface PracticeStreak {
+  current: number;
+  longest: number;
+  lastDate: string; // YYYY-MM-DD format
+}
+
 export interface LearningProgress {
   version: 1;
   completedLessons: string[];
@@ -90,6 +96,7 @@ export interface LearningProgress {
     correctAttempts: number;
     weakCharacters: Record<string, { attempts: number; correct: number }>;
   };
+  streak?: PracticeStreak;
   lastActiveDate: string;
 }
 

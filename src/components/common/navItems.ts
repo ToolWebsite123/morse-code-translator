@@ -4,11 +4,11 @@
  */
 export const PRIMARY_NAV = [
   { href: '/', label: 'Translator' },
-  { href: '/learn', label: 'Learn' },
-  { href: '/practice', label: 'Practice' },
-  { href: '/quiz', label: 'Quiz' },
-  { href: '/reference', label: 'Reference' },
-  { href: '/audio-decoder', label: 'Decoder' },
+  { href: '/learn-morse-code', label: 'Learn' },
+  { href: '/morse-code-practice', label: 'Practice' },
+  { href: '/morse-code-quiz', label: 'Quiz' },
+  { href: '/morse-code-alphabet', label: 'Alphabet' },
+  { href: '/morse-code-audio-decoder', label: 'Audio Decoder' },
 ] as const;
 
 export function isActivePath(pathname: string | null, href: string): boolean {
@@ -16,4 +16,3 @@ export function isActivePath(pathname: string | null, href: string): boolean {
   if (href === '/') return pathname === '/';
   return pathname === href || pathname.startsWith(`${href}/`);
 }
-

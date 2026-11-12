@@ -379,6 +379,15 @@ details.accordion-card[open] .chevron-icon {
   border-color: rgba(45, 212, 191, 0.35);
 }
 
+/* Utility to hide scrollbars while maintaining scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .table-box-glow,
   .table-box-glow:hover,

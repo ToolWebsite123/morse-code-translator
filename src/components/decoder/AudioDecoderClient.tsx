@@ -176,7 +176,7 @@ export function AudioDecoderClient() {
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
-          className={`mt-6 flex flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition-all ${
+          className={`mt-6 flex flex-col items-center justify-center rounded-2xl border-2 border-dashed p-5 text-center transition-all sm:p-8 ${
             isDragging
               ? 'border-teal-600 bg-teal-50/50 dark:border-teal-400 dark:bg-teal-950/30'
               : 'border-slate-300 bg-white hover:border-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-slate-600'
@@ -189,7 +189,8 @@ export function AudioDecoderClient() {
           </div>
 
           <p className="mt-4 text-base font-semibold text-slate-900 dark:text-slate-100">
-            Choose an audio file or drag &amp; drop it here
+            <span className="hidden sm:inline">Choose an audio file or drag &amp; drop it here</span>
+            <span className="sm:hidden">Tap to select an audio recording</span>
           </p>
           <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
             Supports WAV, MP3, OGG, WebM (up to 10 MB, max 120 seconds)
@@ -207,10 +208,16 @@ export function AudioDecoderClient() {
 
           <label
             htmlFor="audio-file-input"
-            className="touch-target mt-5 inline-flex cursor-pointer items-center justify-center rounded-lg bg-teal-700 px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-teal-700 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
+            className="touch-target mt-5 inline-flex w-full sm:w-auto cursor-pointer items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 sm:px-6 py-3 text-xs font-semibold text-white shadow-xs hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-teal-700 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
           >
-            {isProcessing ? 'Analyzing Audio Signal...' : 'Browse Audio File'}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+            </svg>
+            <span>{isProcessing ? 'Analyzing Audio Signal...' : 'Select Audio File (.wav, .mp3)'}</span>
           </label>
+          <span className="mt-2 text-xs font-medium text-teal-700 sm:hidden dark:text-teal-400">
+            Tap button to choose file from phone storage
+          </span>
         </div>
       )}
 
@@ -272,7 +279,7 @@ export function AudioDecoderClient() {
           </div>
 
           {/* Decoded Text Card */}
-          <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-900">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
@@ -288,13 +295,13 @@ export function AudioDecoderClient() {
                 {copiedText ? 'Copied!' : 'Copy Text'}
               </button>
             </div>
-            <div className="mt-4 min-h-[60px] rounded-lg bg-slate-50 p-4 font-mono text-base font-semibold text-slate-900 dark:bg-slate-800/60 dark:text-slate-100">
+            <div className="mt-4 min-h-[60px] rounded-lg bg-slate-50 p-4 font-mono text-base font-semibold text-slate-900 dark:bg-slate-800/60 dark:text-slate-100 break-words">
               {result.text || <span className="text-slate-400 italic font-sans text-sm">No plain text recognized</span>}
             </div>
           </div>
 
           {/* Transcribed Morse Code Card */}
-          <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-900">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                 Transcribed Morse Sequence
@@ -323,11 +330,11 @@ export function AudioDecoderClient() {
           )}
 
           {/* Action Footer */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
             <button
               type="button"
               onClick={handleReset}
-              className="touch-target inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
+              className="touch-target w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:text-sm"
             >
               Decode Another Audio File
             </button>

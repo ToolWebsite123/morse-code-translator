@@ -161,9 +161,9 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
   const isValidMorse = Boolean(morse && morse.trim().length > 0 && !/[a-zA-Z0-9]/.test(morse));
 
   return (
-    <div className="audio-dock border-t border-slate-200/90 bg-slate-50/90 p-5 sm:p-6 text-slate-900 transition-colors dark:border-slate-800/90 dark:bg-slate-950/80 dark:text-white">
+    <div className="audio-dock border-t border-slate-200/90 bg-slate-50/90 p-4 sm:p-6 text-slate-900 transition-colors dark:border-slate-800/90 dark:bg-slate-950/80 dark:text-white">
       {/* Header bar of the audio dock */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-200/80 dark:border-slate-800/80">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 sm:pb-4 border-b border-slate-200/80 dark:border-slate-800/80">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-800 text-white shadow-xs dark:bg-teal-500 dark:text-slate-950">
             <svg
@@ -198,7 +198,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
         </div>
 
         {/* Optical hardware beacon simulation */}
-        <div className="flex items-center gap-2.5 rounded-full border border-slate-300/80 bg-white px-3.5 py-1.5 shadow-2xs dark:border-slate-700/80 dark:bg-slate-800/90">
+        <div className="flex items-center gap-2.5 rounded-full border border-slate-300/80 bg-white px-3 sm:px-3.5 py-1.5 shadow-2xs dark:border-slate-700/80 dark:bg-slate-800/90">
           <span
             className={`flex h-4 w-4 items-center justify-center rounded-full transition-all duration-75 ${
               isFlashing
@@ -209,7 +209,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
           >
             {isFlashing && <span className="h-1.5 w-1.5 rounded-full bg-amber-950" />}
           </span>
-          <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-200">
+          <span className="font-mono text-[11px] sm:text-xs font-bold text-slate-700 dark:text-slate-200">
             {isFlashing
               ? activeSymbol === '.'
                 ? 'DOT (•)'
@@ -340,7 +340,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
               type="button"
               onClick={handlePlayToggle}
               disabled={!isValidMorse}
-              className={`btn-tactile touch-target flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 ${
+              className={`btn-tactile touch-target flex flex-1 items-center justify-center gap-1.5 sm:gap-2 rounded-xl px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 ${
                 isPlaying
                   ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/25 hover:bg-amber-400 active:scale-[0.98]'
                   : isValidMorse
@@ -369,7 +369,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
               <button
                 type="button"
                 onClick={handleStop}
-                className="btn-tactile touch-target inline-flex items-center rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+                className="btn-tactile touch-target inline-flex items-center rounded-xl border border-slate-300 bg-white px-2.5 sm:px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               >
                 Reset
               </button>
@@ -380,7 +380,7 @@ export function AudioPlayer({ morse }: AudioPlayerProps) {
               type="button"
               onClick={handleDownloadWav}
               disabled={!isValidMorse || isExporting}
-              className="btn-tactile touch-target inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-xs font-bold text-slate-800 shadow-2xs transition-colors hover:border-teal-600 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-teal-500 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700"
+              className="btn-tactile touch-target inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-3 sm:px-3.5 py-2.5 text-xs font-bold text-slate-800 shadow-2xs transition-colors hover:border-teal-600 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-teal-500 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700"
               title="Download synthesized audio as a WAV file"
               aria-label="Download synthesized Morse audio as a WAV file"
             >

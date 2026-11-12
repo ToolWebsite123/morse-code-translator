@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import type { PracticeDirection, PracticeQuestion } from '@/types/learning';
+import type { PracticeDirection, PracticeQuestion, PracticeStreak } from '@/types/learning';
 import { generatePracticeQueue, evaluatePracticeAnswer } from '@/lib/learning/practice';
-import { getLearningProgress, recordPracticeAttempt } from '@/lib/storage/progress';
+import { getLearningProgress, recordPracticeAttempt, getPracticeStreak } from '@/lib/storage/progress';
 import { AudioPreviewButton } from './AudioPreviewButton';
 
 function createQueue(
@@ -36,8 +36,13 @@ export function PracticeClient() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [lastEvaluation, setLastEvaluation] = useState<{ isCorrect: boolean; normalizedUser: string; normalizedExpected: string } | null>(null);
   const [score, setScore] = useState({ correct: 0, total: 0 });
+  const [streak, setStreak] = useState<PracticeStreak>({ current: 0, longest: 0, lastDate: '' });
 
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setStreak(getPracticeStreak());
+  }, []);
 
   const resetSessionWith = (
     newDirection: PracticeDirection,
@@ -87,6 +92,7 @@ export function PracticeClient() {
     // Record in local progress
     const charToTrack = direction === 'text-to-morse' ? currentQuestion.prompt : currentQuestion.expectedAnswer;
     recordPracticeAttempt(charToTrack, evalResult.isCorrect);
+    setStreak(getPracticeStreak());
   };
 
   const handleNext = () => {
@@ -125,24 +131,24 @@ export function PracticeClient() {
       />
 
       {/* Unified Command & Filter Deck */}
-      <div className="border-b border-slate-200/90 bg-slate-50/80 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/70">
+      <div className="border-b border-slate-200/90 bg-slate-50/80 p-3.5 sm:p-5 dark:border-slate-800 dark:bg-slate-950/70">
         {/* Row 1: Direction Mode Switcher & Session Telemetry */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           {/* Direction Switcher */}
-          <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Mode:
             </span>
             <div
               role="group"
               aria-label="Practice training direction"
-              className="inline-flex rounded-xl border border-slate-300/80 bg-white p-1 shadow-2xs dark:border-slate-700 dark:bg-slate-900"
+              className="inline-flex flex-wrap sm:flex-nowrap rounded-xl border border-slate-300/80 bg-white p-1 shadow-2xs dark:border-slate-700 dark:bg-slate-900"
             >
               <button
                 type="button"
                 onClick={() => handleDirectionChange('morse-to-text')}
                 aria-pressed={direction === 'morse-to-text'}
-                className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
+                className={`btn-tactile touch-target inline-flex items-center gap-1 sm:gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
                   direction === 'morse-to-text'
                     ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-400 dark:text-slate-950'
                     : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'
@@ -156,7 +162,7 @@ export function PracticeClient() {
                 type="button"
                 onClick={() => handleDirectionChange('text-to-morse')}
                 aria-pressed={direction === 'text-to-morse'}
-                className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
+                className={`btn-tactile touch-target inline-flex items-center gap-1 sm:gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
                   direction === 'text-to-morse'
                     ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-400 dark:text-slate-950'
                     : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'
@@ -170,7 +176,7 @@ export function PracticeClient() {
                 type="button"
                 onClick={() => handleDirectionChange('audio-to-text')}
                 aria-pressed={direction === 'audio-to-text'}
-                className={`btn-tactile touch-target inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
+                className={`btn-tactile touch-target inline-flex items-center gap-1 sm:gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-xs font-bold transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus sm:text-sm ${
                   direction === 'audio-to-text'
                     ? 'bg-teal-700 text-white shadow-xs dark:bg-teal-400 dark:text-slate-950'
                     : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100'
@@ -187,7 +193,14 @@ export function PracticeClient() {
           </div>
 
           {/* Live Session Telemetry Readout */}
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <span
+              className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-bold text-amber-900 shadow-2xs dark:border-amber-900/60 dark:bg-amber-950/60 dark:text-amber-300"
+              title="Daily Practice Habit Streak (Stored locally on your device)"
+            >
+              <span aria-hidden="true">🔥</span>
+              <span>{streak.current > 0 ? `${streak.current}d Streak` : 'Daily Streak'}</span>
+            </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-xs font-semibold text-slate-700 shadow-2xs dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
               Drill {currentIndex + 1} / {queue.length}
@@ -277,7 +290,7 @@ export function PracticeClient() {
 
       {/* Main Flashcard Drill Stage */}
       {currentQuestion ? (
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 md:p-8">
           {/* Mode Guidance & Prompt Stage */}
           <div className="mx-auto max-w-lg text-center">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-200/90 bg-teal-50 px-3.5 py-1 text-xs font-bold text-teal-800 dark:border-teal-800/60 dark:bg-teal-950/60 dark:text-teal-300">

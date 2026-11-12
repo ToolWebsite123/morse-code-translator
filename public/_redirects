@@ -1,3 +1,7 @@
 /translator / 301
-/faq /#faq 301
-
+/faq / 301
+/practice /morse-code-practice 301
+/quiz /morse-code-quiz 301
+/reference /morse-code-alphabet 301
+/audio-decoder /morse-code-audio-decoder 301
+/learn /learn-morse-code 301

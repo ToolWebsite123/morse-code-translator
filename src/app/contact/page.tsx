@@ -11,16 +11,16 @@ const OFFICIAL_EMAIL = 'morecodetranslator@gmail.com';
 export const metadata: Metadata = {
   title: 'Contact Us & Support Helpdesk',
   description:
-    'Contact the Morse Code Platform team for support, feature suggestions, bug reports, and educational inquiries. Direct email assistance available.',
+    'Contact the Morse Code Translator team for support, feature suggestions, bug reports, and educational inquiries. Direct email assistance available.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
     title: 'Contact Us & Support Helpdesk',
     description:
-      'Contact the Morse Code Platform team for support, feature suggestions, bug reports, and educational inquiries. Direct email assistance available.',
+      'Contact the Morse Code Translator team for support, feature suggestions, bug reports, and educational inquiries. Direct email assistance available.',
     url: getAbsoluteUrl('/contact'),
-    siteName: 'Morse Code Platform',
+    siteName: 'Morse Code Translator',
     type: 'website',
   },
 };
@@ -29,10 +29,10 @@ const contactSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact Morse Code Platform',
+    name: 'Contact Morse Code Translator',
     url: getAbsoluteUrl('/contact'),
     description:
-      'Official contact channels and communication guidelines for Morse Code Platform users, educators, and hobbyists.',
+      'Official contact channels and communication guidelines for Morse Code Translator users, educators, and hobbyists.',
   },
   {
     '@context': 'https://schema.org',
@@ -172,7 +172,7 @@ export default function ContactPage() {
           <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-[44px] sm:leading-tight dark:text-white">
             Contact{' '}
             <span className="bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-500 bg-clip-text text-transparent dark:from-teal-300 dark:via-emerald-300 dark:to-teal-200">
-              Morse Code Platform
+              Morse Code Translator
             </span>
           </h1>
 
@@ -324,13 +324,13 @@ export default function ContactPage() {
                 Morse Translator &rarr;
               </Link>
               <Link
-                href="/learn"
+                href="/learn-morse-code"
                 className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 sm:text-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               >
                 10-Lesson Course &rarr;
               </Link>
               <Link
-                href="/reference"
+                href="/morse-code-alphabet"
                 className="btn-tactile touch-target inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 sm:text-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               >
                 Reference Chart &rarr;

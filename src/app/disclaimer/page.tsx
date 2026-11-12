@@ -10,16 +10,16 @@ const CONTACT_EMAIL = 'morecodetranslator@gmail.com';
 export const metadata: Metadata = {
   title: 'Technical & Safety Disclaimer',
   description:
-    'Important technical and safety disclaimers. Morse Code Platform is an educational utility and is not certified for maritime emergency or SOS life safety.',
+    'Important technical & safety disclaimers. Morse Code Translator is an educational utility and is not certified for maritime emergency or SOS life safety.',
   alternates: {
     canonical: '/disclaimer',
   },
   openGraph: {
     title: 'Technical & Safety Disclaimer',
     description:
-      'Important technical and safety disclaimers. Morse Code Platform is an educational utility and is not certified for maritime emergency or SOS life safety.',
+      'Important technical & safety disclaimers. Morse Code Translator is an educational utility and is not certified for maritime emergency or SOS life safety.',
     url: getAbsoluteUrl('/disclaimer'),
-    siteName: 'Morse Code Platform',
+    siteName: 'Morse Code Translator',
     type: 'website',
   },
 };

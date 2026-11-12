@@ -96,7 +96,7 @@ export async function generateMetadata({ params }: LessonPageProps): Promise<Met
       title,
       description,
       url: getAbsoluteUrl(`/learn/${lesson.slug}`),
-      siteName: 'Morse Code Platform',
+      siteName: 'Morse Code Translator',
       type: 'article',
     },
   };
@@ -125,7 +125,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
       isPartOf: {
         '@type': 'Course',
         name: 'International Morse Code Beginner Course',
-        url: getAbsoluteUrl('/learn'),
+        url: getAbsoluteUrl('/learn-morse-code'),
       },
     },
     {
@@ -141,8 +141,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'Learn',
-          item: getAbsoluteUrl('/learn'),
+          name: 'Learn Morse Code',
+          item: getAbsoluteUrl('/learn-morse-code'),
         },
         {
           '@type': 'ListItem',
@@ -181,8 +181,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
               </li>
               <li className="text-slate-300 dark:text-slate-600">/</li>
               <li>
-                <Link href="/learn" className="hover:text-teal-700 dark:hover:text-teal-400 transition-colors">
-                  Learn
+                <Link href="/learn-morse-code" className="hover:text-teal-700 dark:hover:text-teal-400 transition-colors">
+                  Learn Morse Code
                 </Link>
               </li>
               <li className="text-slate-300 dark:text-slate-600">/</li>
@@ -194,7 +194,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
         </div>
 
         {/* 2026 Lesson Header Card */}
-        <div className="table-box-glow mb-8 overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-xs backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 sm:p-8">
+        <div className="table-box-glow mb-8 overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-xs backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90 sm:p-6 md:p-8">
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
             <div className="flex items-center gap-2">
               <span className="rounded-lg bg-teal-50 px-2.5 py-1 font-mono text-xs font-extrabold text-teal-800 dark:bg-teal-950/70 dark:text-teal-300">
@@ -232,7 +232,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
           {lesson.sections.map((section, idx) => (
             <section
               key={idx}
-              className="box-glow rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-xs backdrop-blur-xs dark:border-slate-800 dark:bg-slate-900/90 sm:p-8"
+              className="box-glow rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-xs backdrop-blur-xs dark:border-slate-800 dark:bg-slate-900/90 sm:p-6 md:p-8"
             >
               <div className="flex items-center gap-2.5">
                 <span className="h-4 w-1 rounded-full bg-teal-600 dark:bg-teal-400" />
@@ -250,7 +250,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
           {/* Interactive Examples with Audio Preview */}
           {lesson.examples.length > 0 && (
-            <section className="box-glow rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-xs backdrop-blur-xs dark:border-slate-800 dark:bg-slate-900/90 sm:p-8">
+            <section className="box-glow rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-xs backdrop-blur-xs dark:border-slate-800 dark:bg-slate-900/90 sm:p-6 md:p-8">
               <div className="flex items-center gap-2.5">
                 <span className="h-4 w-1 rounded-full bg-teal-600 dark:bg-teal-400" />
                 <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
@@ -265,7 +265,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 {lesson.examples.map((example, eIdx) => (
                   <div
                     key={eIdx}
-                    className="box-glow flex flex-col justify-between rounded-xl border border-slate-200/80 bg-slate-50/70 p-4.5 dark:border-slate-700/80 dark:bg-slate-800/60"
+                    className="box-glow flex flex-col justify-between rounded-xl border border-slate-200/80 bg-slate-50/70 p-4 dark:border-slate-700/80 dark:bg-slate-800/60"
                   >
                     <div>
                       <div className="flex items-center justify-between">
@@ -292,26 +292,26 @@ export default async function LessonPage({ params }: LessonPageProps) {
         </div>
 
         {/* Previous / Next Lesson Navigation Footer */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-6 dark:border-slate-800">
+        <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-slate-200 pt-6 dark:border-slate-800">
           {prev ? (
             <Link
               href={`/learn/${prev.slug}`}
-              className="btn-tactile touch-target inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-2xs hover:border-teal-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700 sm:text-sm"
+              className="btn-tactile touch-target inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-2xs hover:border-teal-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700 sm:text-sm"
             >
-              &larr; Prev: {prev.title.split('.')[1]?.trim() || prev.title}
+              &larr; Prev Lesson
             </Link>
           ) : (
             <Link
-              href="/learn"
-              className="btn-tactile touch-target inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-2xs hover:border-teal-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700 sm:text-sm"
+              href="/learn-morse-code"
+              className="btn-tactile touch-target inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-2xs hover:border-teal-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-700 sm:text-sm"
             >
               &larr; All Lessons Hub
             </Link>
           )}
 
           <Link
-            href="/learn"
-            className="btn-tactile text-xs font-semibold text-slate-500 hover:text-teal-700 dark:text-slate-400 dark:hover:text-teal-300"
+            href="/learn-morse-code"
+            className="btn-tactile text-xs font-semibold text-slate-500 hover:text-teal-700 dark:text-slate-400 dark:hover:text-teal-300 text-center"
           >
             Curriculum Overview
           </Link>
@@ -319,14 +319,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
           {next ? (
             <Link
               href={`/learn/${next.slug}`}
-              className="btn-tactile touch-target inline-flex items-center gap-2 rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
+              className="btn-tactile touch-target inline-flex items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
             >
-              Next: {next.title.split('.')[1]?.trim() || next.title} &rarr;
+              Next Lesson &rarr;
             </Link>
           ) : (
             <Link
-              href="/practice"
-              className="btn-tactile touch-target inline-flex items-center gap-2 rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
+              href="/morse-code-practice"
+              className="btn-tactile touch-target inline-flex items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-500 sm:text-sm"
             >
               Start Practice Drills &rarr;
             </Link>

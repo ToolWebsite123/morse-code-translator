@@ -28,6 +28,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: SITE_CONFIG.locale,
@@ -35,11 +43,20 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     title: SITE_CONFIG.defaultTitle,
     description: SITE_CONFIG.defaultDescription,
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Morse Code Translator — Free Translator & Audio Decoder',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: SITE_CONFIG.defaultTitle,
     description: SITE_CONFIG.defaultDescription,
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -66,6 +83,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: SITE_CONFIG.name,
+  alternateName: ['morsecodetranslatores.com', 'Morse Code Translatores'],
   url: SITE_CONFIG.url,
   description: SITE_CONFIG.defaultDescription,
   inLanguage: 'en',
