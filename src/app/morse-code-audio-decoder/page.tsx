@@ -823,7 +823,7 @@ export default function AudioDecoderPage() {
                 </svg>
               </div>
               <h2 className="text-lg font-bold text-slate-900 sm:text-xl md:text-2xl lg:text-3xl dark:text-slate-100">
-                Explore Morse Code Tools &amp; Learning Hubs
+                Explore Additional Morse Code Decoding &amp; Learning Tools
               </h2>
             </div>
             <p className="mb-6 text-sm leading-relaxed text-slate-700 sm:text-base md:text-lg dark:text-slate-300">
@@ -962,7 +962,7 @@ export default function AudioDecoderPage() {
             <span>CW TELEGRAPHY &bull; START LEARNING</span>
           </div>
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl md:text-4xl dark:text-white">
-            Ready to Learn and Master Morse Code?
+            Ready to Expand Your Morse Code Skills?
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
             Whether you need to translate a single phrase, decode audio recordings, or want to build real telegraphy skills, our free learning curriculum and practice tools are ready when you are.
