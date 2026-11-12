@@ -46,9 +46,9 @@ const LEARN_FAQS: readonly FAQItem[] = [
       'You should prioritize auditory learning from day one. While visual charts are helpful for quick lookups, counting dots and dashes visually creates a mental translation bottleneck that collapses at speeds above 5 WPM. Listening to the musical rhythm of each letter trains your brain to recognize whole sound patterns automatically.',
   },
   {
-    question: 'Why do all Morse code numbers have five elements?',
+    question: 'How does the 10-lesson curriculum cover numbers and punctuation?',
     answer:
-      'Every digit from 0 to 9 in International Morse Code is standardized to exactly five elements to prevent confusion with 1-to-4-element alphabet letters. Digits follow a symmetrical progression: numbers 1 through 5 add leading dots (.---- to .....), while numbers 6 through 9 and 0 add leading dashes (-.... to -----).',
+      'The course introduces digits systematically in Lesson 5 using the symmetrical 5-element sliding window pattern, followed by Lesson 6 which covers official ITU punctuation marks and prosigns. For a dedicated deep dive with audio drills and contest cut numbers, explore our comprehensive Morse Code Numbers Guide.',
   },
   {
     question: 'How does this course track my learning progress without an account?',
