@@ -5,7 +5,7 @@ import { Footer } from '@/components/common/Footer';
 import { ReferenceChart } from '@/components/reference/ReferenceChart';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getAbsoluteUrl } from '@/lib/seo/siteConfig';
-import { LETTER_MAPPINGS, DIGIT_MAPPINGS, PUNCTUATION_MAPPINGS } from '@/lib/morse/mapping';
+import { LETTER_MAPPINGS, PUNCTUATION_MAPPINGS } from '@/lib/morse/mapping';
 
 export const metadata: Metadata = {
   title: 'Morse Code Alphabet Chart & Letters',
@@ -59,25 +59,6 @@ const ALPHABET_REFERENCE_ROWS: readonly AlphabetRow[] = [
   { letter: 'Z', rhythm: 'dah-dah-di-dit', elements: 4, summary: '2 dashes, 2 dots' },
 ];
 
-interface DigitRow {
-  digit: string;
-  rhythm: string;
-  pattern: string;
-  oppositeDigit: string;
-}
-
-const DIGIT_REFERENCE_ROWS: readonly DigitRow[] = [
-  { digit: '1', rhythm: 'di-dah-dah-dah-dah', pattern: '1 dot followed by 4 dashes', oppositeDigit: '6' },
-  { digit: '2', rhythm: 'di-di-dah-dah-dah', pattern: '2 dots followed by 3 dashes', oppositeDigit: '7' },
-  { digit: '3', rhythm: 'di-di-di-dah-dah', pattern: '3 dots followed by 2 dashes', oppositeDigit: '8' },
-  { digit: '4', rhythm: 'di-di-di-di-dah', pattern: '4 dots followed by 1 dash', oppositeDigit: '9' },
-  { digit: '5', rhythm: 'di-di-di-di-dit', pattern: '5 dots (0 dashes)', oppositeDigit: '0' },
-  { digit: '6', rhythm: 'dah-di-di-di-dit', pattern: '1 dash followed by 4 dots', oppositeDigit: '1' },
-  { digit: '7', rhythm: 'dah-dah-di-di-dit', pattern: '2 dashes followed by 3 dots', oppositeDigit: '2' },
-  { digit: '8', rhythm: 'dah-dah-dah-di-dit', pattern: '3 dashes followed by 2 dots', oppositeDigit: '3' },
-  { digit: '9', rhythm: 'dah-dah-dah-dah-dit', pattern: '4 dashes followed by 1 dot', oppositeDigit: '4' },
-  { digit: '0', rhythm: 'dah-dah-dah-dah-dah', pattern: '5 dashes (0 dots)', oppositeDigit: '5' },
-];
 
 interface PunctuationRow {
   symbol: string;
@@ -426,129 +407,34 @@ export default function ReferencePage() {
                 </svg>
               </div>
               <h2 className="text-lg font-bold text-slate-900 sm:text-xl md:text-2xl lg:text-3xl dark:text-slate-100">
-                Morse Code Numbers (0–9): The 5-Element Pattern
+                Morse Code Numbers (0–9): The 5-Element Rule
               </h2>
             </div>
             <p className="mb-6 text-sm leading-relaxed text-slate-700 sm:text-base md:text-lg dark:text-slate-300">
-              Unlike the alphabet where lengths vary from 1 to 4 elements,{' '}
-              <strong>every single number in Morse code consists of exactly 5 elements</strong>. Because digits follow
-              a strict symmetrical progression, you can memorize all 10 in under a minute:
+              Unlike the Latin alphabet where character lengths vary from 1 to 4 elements,{' '}
+              <strong>every single number in Morse code consists of exactly 5 elements</strong>. Digits follow a strict symmetrical sliding-window progression: numbers 1 through 5 accumulate leading dots (<code className="font-mono text-teal-800 dark:text-teal-300">.----</code> to <code className="font-mono text-teal-800 dark:text-teal-300">.....</code>), while numbers 6 through 0 accumulate leading dashes (<code className="font-mono text-amber-800 dark:text-amber-300">-....</code> to <code className="font-mono text-amber-800 dark:text-amber-300">-----</code>).
             </p>
 
-            <div className="mb-6 rounded-2xl border border-slate-200/80 bg-slate-50/60 p-5 sm:p-6 dark:border-slate-800 dark:bg-slate-950/40">
-              <h3 className="text-base font-bold text-slate-900 sm:text-lg dark:text-slate-100">
-                How the 5-Element Number Progression Works
-              </h3>
-              <div className="mt-4 grid gap-4 grid-cols-1">
-                <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-5 text-sm leading-relaxed text-slate-700 sm:text-base dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <strong className="block font-bold text-slate-900 sm:text-lg dark:text-slate-100">
-                      <span className="font-mono text-teal-800 dark:text-teal-300 mr-2">Part 1.</span>Numbers 1 to 5 (Leading Dots)
-                    </strong>
-                    <span className="rounded-md border border-slate-200 bg-white px-2.5 py-0.5 font-mono text-xs font-semibold text-teal-800 dark:border-slate-700 dark:bg-slate-800 dark:text-teal-300">
-                      . to .....
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-                    Start with a single dot for <strong>1</strong> (<code className="font-mono font-bold text-teal-900 dark:text-teal-200">.----</code>)
-                    and replace one dash with a dot for each number until <strong>5</strong> is all five dots (<code className="font-mono font-bold text-teal-900 dark:text-teal-200">.....</code>). The number of leading dots equals the digit.
+            <div className="rounded-2xl border border-teal-200/80 bg-teal-50/50 p-6 dark:border-teal-900/40 dark:bg-teal-950/20">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 sm:text-lg dark:text-slate-100">
+                    Need the Complete Numbers Reference &amp; Audio Drills?
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                    Explore our standalone guide featuring interactive tone audio playback, full sliding-window breakdowns, and amateur radio &ldquo;cut numbers&rdquo; (5NN, 1NN).
                   </p>
                 </div>
-                <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-5 text-sm leading-relaxed text-slate-700 sm:text-base dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <strong className="block font-bold text-slate-900 sm:text-lg dark:text-slate-100">
-                      <span className="font-mono text-amber-800 dark:text-amber-300 mr-2">Part 2.</span>Numbers 6 to 9 and 0 (Leading Dashes)
-                    </strong>
-                    <span className="rounded-md border border-slate-200 bg-white px-2.5 py-0.5 font-mono text-xs font-semibold text-amber-800 dark:border-slate-700 dark:bg-slate-800 dark:text-amber-300">
-                      -.... to -----
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-                    Starting at <strong>6</strong> (<code className="font-mono font-bold text-amber-900 dark:text-amber-200">-....</code>), lead with dashes
-                    and fill the rest with dots, culminating in <strong>0</strong> as five solid dashes (<code className="font-mono font-bold text-amber-900 dark:text-amber-200">-----</code>).
-                  </p>
-                </div>
+                <Link
+                  href="/morse-code-numbers"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-800 px-5 py-3 text-sm font-semibold text-white shadow-xs transition hover:bg-teal-700 dark:bg-teal-600 dark:text-slate-950 dark:hover:bg-teal-500"
+                >
+                  <span>Open Numbers Guide</span>
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
-            </div>
-
-            {/* Desktop Table View (Hidden on mobile) */}
-            <div className="hidden md:block overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs dark:border-slate-800 dark:bg-slate-900">
-              <table className="w-full border-collapse text-left text-xs sm:text-sm text-slate-900 dark:text-slate-100">
-                <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50/95 text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:border-slate-800 dark:bg-slate-950/95 dark:text-slate-400">
-                    <th scope="col" className="px-5 py-3.5">Digit</th>
-                    <th scope="col" className="px-5 py-3.5">Morse Code</th>
-                    <th scope="col" className="px-5 py-3.5">Spoken Rhythm (dit / dah)</th>
-                    <th scope="col" className="px-5 py-3.5">5-Element Progression Pattern</th>
-                    <th scope="col" className="px-5 py-3.5">Opposite Pair</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
-                  {DIGIT_REFERENCE_ROWS.map((row) => {
-                    const code = DIGIT_MAPPINGS[row.digit];
-                    const oppositeCode = DIGIT_MAPPINGS[row.oppositeDigit];
-                    return (
-                      <tr key={row.digit} className="table-row-hover group">
-                        <td className="px-5 py-3 font-mono text-sm font-bold text-slate-900 dark:text-slate-100">
-                          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 font-mono text-sm font-extrabold text-slate-900 shadow-2xs transition-colors group-hover:border-teal-400 group-hover:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:group-hover:border-teal-400">
-                            {row.digit}
-                          </span>
-                        </td>
-                        <td className="px-5 py-3 font-mono text-base font-extrabold tracking-[0.2em] text-teal-800 dark:text-teal-300">
-                          {code}
-                        </td>
-                        <td className="px-5 py-3">
-                          <span className="inline-flex items-center rounded-lg border border-amber-200/80 bg-amber-50/90 px-2.5 py-1 font-mono text-xs font-semibold text-amber-900 dark:border-amber-800/60 dark:bg-amber-950/50 dark:text-amber-300">
-                            {row.rhythm}
-                          </span>
-                        </td>
-                        <td className="px-5 py-3 text-xs text-slate-600 dark:text-slate-400">
-                          {row.pattern}
-                        </td>
-                        <td className="px-5 py-3 text-xs text-slate-600 dark:text-slate-400">
-                          <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs font-medium dark:border-slate-700 dark:bg-slate-800">
-                            Mirror of <strong>{row.oppositeDigit}</strong>
-                            <code className="font-mono font-bold text-teal-700 dark:text-teal-400">
-                              ({oppositeCode})
-                            </code>
-                          </span>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Mobile Touch-Friendly Card Grid (Visible on mobile, 0 horizontal clipping) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 md:hidden">
-              {DIGIT_REFERENCE_ROWS.map((row) => {
-                const code = DIGIT_MAPPINGS[row.digit];
-                const oppositeCode = DIGIT_MAPPINGS[row.oppositeDigit];
-                return (
-                  <div key={row.digit} className="rounded-xl border border-slate-200/90 bg-slate-50/70 p-4 dark:border-slate-800 dark:bg-slate-950/60">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white font-mono text-sm font-extrabold text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
-                        {row.digit}
-                      </span>
-                      <span className="font-mono text-base font-extrabold tracking-[0.15em] text-teal-800 dark:text-teal-300">
-                        {code}
-                      </span>
-                    </div>
-                    <div className="mt-2.5 flex items-center justify-between">
-                      <span className="inline-flex items-center rounded-md border border-amber-200/80 bg-amber-50/90 px-2 py-0.5 font-mono text-xs font-semibold text-amber-900 dark:border-amber-800/60 dark:bg-amber-950/50 dark:text-amber-300">
-                        {row.rhythm}
-                      </span>
-                      <span className="text-xs text-slate-500 dark:text-slate-400">
-                        Opposite: <strong>{row.oppositeDigit}</strong> ({oppositeCode})
-                      </span>
-                    </div>
-                    <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400">
-                      {row.pattern}
-                    </p>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </section>
